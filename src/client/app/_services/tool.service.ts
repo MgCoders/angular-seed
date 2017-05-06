@@ -1,10 +1,15 @@
-import {Injectable} from "@angular/core";
-import {Headers, Http, RequestOptions, Response} from "@angular/http";
-import {Observable} from "rxjs";
-import "rxjs/add/operator/map";
+import { Injectable } from '@angular/core';
+import {
+  Headers,
+  Http,
+  RequestOptions,
+  Response
+} from '@angular/http';
+import { Observable } from 'rxjs';
+import 'rxjs/add/operator/map';
 
-import {AuthenticationService} from "../_services/index";
-import {Tool} from "../_models/index";
+import { AuthenticationService } from '../_services/index';
+import { Tool } from '../_models/index';
 
 @Injectable()
 export class ToolService {
@@ -14,11 +19,11 @@ export class ToolService {
 
   getTools(): Observable<Tool[]> {
     // add authorization header with jwt token
-    let headers = new Headers({'Authorization': 'Bearer ' + this.authenticationService.token});
+    let headers = new Headers({'Authorization': this.authenticationService.token});
     let options = new RequestOptions({headers: headers});
 
     // get users from api
-    return this.http.get('/rest/tool', options)
+    return this.http.get('http://localhost:8080/omicflows-backend/rest/tools', options)
       .map((response: Response) => response.json());
   }
 }

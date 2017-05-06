@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit
+} from '@angular/core';
 import { NameListService } from '../shared/name-list/name-list.service';
+import { ToolService } from '../_services/tool.service';
 
 /**
  * This class represents the lazy loaded HomeComponent.
@@ -15,6 +19,7 @@ export class HomeComponent implements OnInit {
   newName: string = '';
   errorMessage: string;
   names: any[] = [];
+  tools: any[] = [];
 
   /**
    * Creates an instance of the HomeComponent with the injected
@@ -22,13 +27,15 @@ export class HomeComponent implements OnInit {
    *
    * @param {NameListService} nameListService - The injected NameListService.
    */
-  constructor(public nameListService: NameListService) {}
+  constructor(public nameListService: NameListService, public toolService: ToolService) {
+  }
 
   /**
    * Get the names OnInit
    */
   ngOnInit() {
     this.getNames();
+    this.getTools();
   }
 
   /**
@@ -38,6 +45,14 @@ export class HomeComponent implements OnInit {
     this.nameListService.get()
       .subscribe(
         names => this.names = names,
+        error => this.errorMessage = <any>error
+      );
+  }
+
+  getTools() {
+    this.toolService.getTools()
+      .subscribe(
+        tools => this.tools = tools,
         error => this.errorMessage = <any>error
       );
   }

@@ -1,7 +1,7 @@
-import {NgModule} from "@angular/core";
-import {RouterModule} from "@angular/router";
-import {HomeComponent} from "./home.component";
-import {AuthGuard} from "../_guards/auth.guard";
+import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { HomeComponent } from './home.component';
+import { AuthGuard } from '../_guards/auth.guard';
 
 @NgModule({
   imports: [
@@ -11,4 +11,5 @@ import {AuthGuard} from "../_guards/auth.guard";
   ],
   exports: [RouterModule]
 })
-export class HomeRoutingModule { }
+export class HomeRoutingModule {
+}

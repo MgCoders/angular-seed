@@ -13,6 +13,11 @@
   <h1>Home</h1>
   <p>You're logged in with JWT!!</p>
 
+  <ul>
+    <li *ngFor="let tool of tools">{{tool.name}}</li>
+  </ul>
+
+
   <p><a [routerLink]="['/login']">Logout</a></p>
 </div>
 

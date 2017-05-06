@@ -1,10 +1,15 @@
-import {Injectable} from "@angular/core";
-import {Headers, Http, RequestOptions, Response} from "@angular/http";
-import {Observable} from "rxjs";
-import "rxjs/add/operator/map";
+import { Injectable } from '@angular/core';
+import {
+  Headers,
+  Http,
+  RequestOptions,
+  Response
+} from '@angular/http';
+import { Observable } from 'rxjs';
+import 'rxjs/add/operator/map';
 
-import {AuthenticationService} from "../_services/index";
-import {User} from "../_models/index";
+import { AuthenticationService } from '../_services/index';
+import { User } from '../_models/index';
 
 @Injectable()
 export class UserService {
@@ -14,7 +19,7 @@ export class UserService {
 
   getUsers(): Observable<User[]> {
     // add authorization header with jwt token
-    let headers = new Headers({'Authorization': 'Bearer ' + this.authenticationService.token});
+    let headers = new Headers({'Authorization': this.authenticationService.token});
     let options = new RequestOptions({headers: headers});
 
     // get users from api

@@ -1,17 +1,12 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { TestBed } from '@angular/core/testing';
-import { APP_BASE_HREF } from '@angular/common';
-
 import {
-  async
+  async,
+  TestBed
 } from '@angular/core/testing';
-import {
-  Route
-} from '@angular/router';
-import {
-  RouterTestingModule
-} from '@angular/router/testing';
+import { APP_BASE_HREF } from '@angular/common';
+import { Route } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
@@ -24,9 +19,9 @@ export function main() {
   describe('App component', () => {
 
     let config: Route[] = [
-      { path: '', component: HomeComponent },
-      { path: 'about', component: AboutComponent },
-      { path: 'dnd', component: DndComponent }
+      {path: '', component: HomeComponent},
+      {path: 'about', component: AboutComponent},
+      {path: 'dnd', component: DndComponent}
     ];
     beforeEach(() => {
       TestBed.configureTestingModule({
@@ -35,7 +30,7 @@ export function main() {
           NavbarComponent, AppComponent,
           HomeComponent, AboutComponent, DndComponent],
         providers: [
-          { provide: APP_BASE_HREF, useValue: '/' }
+          {provide: APP_BASE_HREF, useValue: '/'}
         ]
       });
     });

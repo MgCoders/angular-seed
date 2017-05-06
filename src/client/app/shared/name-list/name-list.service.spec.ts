@@ -1,5 +1,14 @@
-import { BaseRequestOptions, ConnectionBackend, Http, Response, ResponseOptions } from '@angular/http';
-import { TestBed, async } from '@angular/core/testing';
+import {
+  BaseRequestOptions,
+  ConnectionBackend,
+  Http,
+  Response,
+  ResponseOptions
+} from '@angular/http';
+import {
+  async,
+  TestBed
+} from '@angular/core/testing';
 import { MockBackend } from '@angular/http/testing';
 
 import { Observable } from 'rxjs/Observable';
@@ -36,7 +45,7 @@ export function main() {
       let mockBackend = TestBed.get(MockBackend);
 
       mockBackend.connections.subscribe((c: any) => {
-        c.mockRespond(new Response(new ResponseOptions({ body: '["Dijkstra", "Hopper"]' })));
+        c.mockRespond(new Response(new ResponseOptions({body: '["Dijkstra", "Hopper"]'})));
       });
 
       nameListService.get().subscribe((data: any) => {

@@ -2,8 +2,11 @@
  * Created by rsperoni on 06/05/17.
  */
 
-import {Injectable} from "@angular/core";
-import {CanActivate, Router} from "@angular/router";
+import { Injectable } from '@angular/core';
+import {
+  CanActivate,
+  Router
+} from '@angular/router';
 
 @Injectable()
 export class AuthGuard implements CanActivate {

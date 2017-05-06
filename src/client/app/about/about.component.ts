@@ -11,5 +11,5 @@ import { Component } from '@angular/core';
 })
 export class AboutComponent {
 
-simpleDrop: any = null;
+  simpleDrop: any = null;
 }
