@@ -1,4 +1,3 @@
-import { Injectable } from '@angular/core';
 import {
   Headers,
   Http,
@@ -10,6 +9,7 @@ import 'rxjs/add/operator/map';
 
 import { AuthenticationService } from '../_services/index';
 import { Tool } from '../_models/index';
+import { Injectable } from '@angular/core';
 
 @Injectable()
 export class ToolService {
