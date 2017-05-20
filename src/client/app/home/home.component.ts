@@ -20,6 +20,9 @@ export class HomeComponent implements OnInit {
   errorMessage: string;
   names: any[] = [];
   tools: any[] = [];
+  private _opened: boolean = false;
+
+
 
   /**
    * Creates an instance of the HomeComponent with the injected
@@ -30,6 +33,9 @@ export class HomeComponent implements OnInit {
   constructor(public nameListService: NameListService, public toolService: ToolService) {
   }
 
+  public _toggleSidebar() {
+    this._opened = !this._opened;
+  }
   /**
    * Get the names OnInit
    */

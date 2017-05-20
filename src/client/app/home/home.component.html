@@ -1,13 +1,27 @@
-<p>Howdy! Here's a list of awesome computer scientists. Do you know any others? Add to the list yourself.</p>
+<ng-sidebar-container>
 
-<form (submit)="addName()">
-  <input [(ngModel)]="newName" name="newName" placeholder="Awesome Computer Scientist">
-  <button type="submit">Add</button>
-</form>
+  <!-- A sidebar -->
+  <ng-sidebar [(opened)]="_opened" [dockedSize]='50' [mode]='push'>
+    <p>Howdy! Here's a list of awesome computer scientists. Do you know any others? Add to the list yourself.</p>
 
-<ul>
-  <li *ngFor="let name of names">{{name}}</li>
-</ul>
+    <form (submit)="addName()">
+      <input [(ngModel)]="newName" name="newName" placeholder="Awesome Computer Scientist">
+      <button type="submit">Add</button>
+    </form>
+
+    <ul>
+      <li *ngFor="let name of names">{{name}}</li>
+    </ul>
+
+
+    <button (click)="_toggleSidebar()">Toggle sidebar</button>
+
+  </ng-sidebar>
+
+  <!-- Page content -->
+  <button (click)="_toggleSidebar()">Toggle sidebar</button>
+
+</ng-sidebar-container>
 
 
 

@@ -1,7 +1,7 @@
 import { join } from 'path';
 
 import { SeedConfig } from './seed.config';
- import { ExtendPackages } from './seed.config.interfaces';
+import { ExtendPackages } from './seed.config.interfaces';
 
 /**
  * This class extends the basic seed configuration, allowing for project specific overrides. A few examples can be found
@@ -50,7 +50,20 @@ export class ProjectConfig extends SeedConfig {
        name: 'ng2-dnd',
     //   // Path to the package's bundle
        path: 'node_modules/ng2-dnd/bundles/index.umd.js'
-     }];
+    },
+      {
+        name: 'ng-sidebar',
+        path: 'node_modules/ng-sidebar/lib/index.js'
+      },
+      {
+        name: 'ngx-bootstrap',
+        path: 'node_modules/ngx-bootstrap/bundles/ngx-bootstrap.umd.min.js'
+      },
+      {
+        name: 'ngx-bootstrap/*',
+        path: 'node_modules/ngx-bootstrap/bundles/ngx-bootstrap.umd.min.js'
+      }
+    ];
     //
      this.addPackagesBundles(additionalPackages);
 
