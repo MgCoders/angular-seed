@@ -26,6 +26,8 @@ export class ProjectConfig extends SeedConfig {
       // {src: 'lodash/lodash.min.js', inject: 'libs'},
       {src: 'bootstrap/dist/js/bootstrap.min.js', inject: 'libs'},
       {src: 'bootstrap/dist/css/bootstrap.min.css', inject: true},
+      {src: 'vis/dist/vis.min.js', inject: 'libs'},
+      {src: 'vis/dist/vis.min.css', inject: true},
       {src:'ng2-dnd/bundles/style.css', inject: true},
     ];
 

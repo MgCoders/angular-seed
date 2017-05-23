@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
   errorMessage: string;
   names: any[] = [];
   tools: any[] = [];
-  private _opened: boolean = false;
+  public _opened: boolean = false;
 
 
 
@@ -42,6 +42,8 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.getNames();
     this.getTools();
+
+
   }
 
   /**
