@@ -1,20 +1,14 @@
-<div class="unicorn-dark-theme">
 <md-sidenav-container fullscreen>
-  <sd-toolbar></sd-toolbar>
-
-  <md-sidenav #sidenav>
+  <sd-toolbar [sidenavOpened]="sidenav_opened" (toogleSideNavEvent)="sidenav.open()"></sd-toolbar>
+  <md-sidenav #sidenav mode="over" (opened)="sidenav_opened">
     <sd-navbar></sd-navbar>
   </md-sidenav>
 
-  <div class="my-content">
+  <div class="main-content">
+
     <router-outlet></router-outlet>
-    <button md-button (click)="sidenav.open()" color="primary">
-      Open sidenav
-    </button>
-    <button md-button>Flat button</button>
-    <button md-raised-button>Raised button</button>
-    <button md-fab><md-icon>check</md-icon></button>
-    <button md-mini-fab><md-icon>check</md-icon></button>
+
   </div>
 </md-sidenav-container>
-</div>
+
+

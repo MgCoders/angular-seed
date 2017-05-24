@@ -1,4 +1,9 @@
-import { Component } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output
+} from '@angular/core';
 
 /**
  * This class represents the toolbar component.
@@ -10,5 +15,15 @@ import { Component } from '@angular/core';
   styleUrls: ['toolbar.component.css']
 })
 export class ToolbarComponent {
+
+  @Input()
+  sidenavOpened: boolean;
+  @Output()
+  toogleSideNavEvent: EventEmitter<boolean> = new EventEmitter();
+
+  public toogle(): void {
+    this.sidenavOpened = !this.sidenavOpened;
+    this.toogleSideNavEvent.emit(this.sidenavOpened);
+  }
 }
 

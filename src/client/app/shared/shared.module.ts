@@ -11,7 +11,12 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { NameListService } from './name-list/name-list.service';
 import { VisCanvasComponent } from './vis-canvas/vis-canvas.component';
 import {
-  MdButtonModule, MdCardModule, MdIconModule, MdListModule, MdSidenavModule,
+  MdButtonModule,
+  MdCardModule,
+  MdIconModule,
+  MdListModule,
+  MdMenuModule,
+  MdSidenavModule,
   MdToolbarModule
 } from '@angular/material';
 
@@ -21,7 +26,7 @@ import {
 
 @NgModule({
   imports: [CommonModule, RouterModule,MdSidenavModule,
-    MdToolbarModule,MdButtonModule,MdCardModule,MdListModule,MdIconModule],
+    MdToolbarModule, MdButtonModule, MdCardModule, MdListModule, MdIconModule, MdMenuModule],
   declarations: [ToolbarComponent, NavbarComponent, VisCanvasComponent],
   exports: [ToolbarComponent, NavbarComponent,
     CommonModule, FormsModule, RouterModule, VisCanvasComponent]

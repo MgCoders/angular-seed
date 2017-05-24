@@ -12,6 +12,7 @@ import './operators';
   styleUrls: ['app.component.css'],
 })
 export class AppComponent {
+  sidenav_opened: boolean;
   constructor() {
     console.log('Environment config', Config);
   }
