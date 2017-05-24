@@ -1,7 +1,5 @@
-<ng-sidebar-container>
 
   <!-- A sidebar -->
-  <ng-sidebar [(opened)]="_opened" [dockedSize]='50' [mode]='push'>
     <p>Howdy! Here's a list of awesome computer scientists. Do you know any others? Add to the list yourself.</p>
 
     <form (submit)="addName()">
@@ -14,14 +12,10 @@
     </ul>
 
 
-    <button (click)="_toggleSidebar()">Toggle sidebar</button>
 
-  </ng-sidebar>
 
   <!-- Page content -->
-  <button (click)="_toggleSidebar()">Toggle sidebar</button>
 
-</ng-sidebar-container>
 
 
 

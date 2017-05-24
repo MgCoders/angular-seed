@@ -13,11 +13,16 @@ import { SharedModule } from './shared/shared.module';
 import { LoginModule } from './login/login.module';
 import { ToolsModule } from './tools/tools.module';
 import { GraphModule } from './graph/graph.module';
-
+import {
+  MaterialModule, MdButtonModule, MdCardContent, MdCardModule, MdIconModule, MdSidenavModule,
+  MdToolbarModule
+} from '@angular/material';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
-  imports: [BrowserModule, HttpModule, AppRoutingModule, AboutModule, HomeModule,
-    LoginModule, ToolsModule, SharedModule.forRoot(),GraphModule],
+  imports: [BrowserModule,NoopAnimationsModule,MdSidenavModule,MdIconModule, MdButtonModule,SharedModule.forRoot(),
+    HttpModule, AppRoutingModule, AboutModule, HomeModule,
+    LoginModule, ToolsModule,GraphModule],
   declarations: [AppComponent],
   providers: [{
     provide: APP_BASE_HREF,

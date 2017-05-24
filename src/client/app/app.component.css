@@ -1,5 +1,5 @@
-:host {
-  flex: 1 1 100%;
-  display: flex;
-  flex-flow: column;
+
+my-content {
+ padding: 20px;
 }
+

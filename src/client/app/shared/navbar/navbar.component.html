@@ -1,10 +1,23 @@
-<nav>
+
+
+
+<md-list>
+  <md-list-item>
   <a [routerLink]="['/']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">HOME</a>
+  </md-list-item>
+  <md-list-item>
   <a [routerLink]="['/about']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">ABOUT</a>
-  <a [routerLink]="['/dnd']" [routerLinkActive]="['router-link-active']"
+  </md-list-item>
+    <md-list-item>
+    <a [routerLink]="['/dnd']" [routerLinkActive]="['router-link-active']"
      [routerLinkActiveOptions]="{exact:true}">DND</a>
-  <a [routerLink]="['/tools']" [routerLinkActive]="['router-link-active']"
+    </md-list-item>
+      <md-list-item>
+      <a [routerLink]="['/tools']" [routerLinkActive]="['router-link-active']"
      [routerLinkActiveOptions]="{exact:true}">Tools</a>
-  <a [routerLink]="['/graph']" [routerLinkActive]="['router-link-active']"
+      </md-list-item>
+        <md-list-item>
+        <a [routerLink]="['/graph']" [routerLinkActive]="['router-link-active']"
      [routerLinkActiveOptions]="{exact:true}">Graph</a>
-</nav>
+        </md-list-item>
+</md-list>

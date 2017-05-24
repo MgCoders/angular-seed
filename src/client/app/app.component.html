@@ -1,3 +1,20 @@
-<sd-toolbar></sd-toolbar>
-<sd-navbar></sd-navbar>
-<router-outlet></router-outlet>
+<div class="unicorn-dark-theme">
+<md-sidenav-container fullscreen>
+  <sd-toolbar></sd-toolbar>
+
+  <md-sidenav #sidenav>
+    <sd-navbar></sd-navbar>
+  </md-sidenav>
+
+  <div class="my-content">
+    <router-outlet></router-outlet>
+    <button md-button (click)="sidenav.open()" color="primary">
+      Open sidenav
+    </button>
+    <button md-button>Flat button</button>
+    <button md-raised-button>Raised button</button>
+    <button md-fab><md-icon>check</md-icon></button>
+    <button md-mini-fab><md-icon>check</md-icon></button>
+  </div>
+</md-sidenav-container>
+</div>
