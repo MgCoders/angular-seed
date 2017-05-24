@@ -19,10 +19,11 @@ import {
   MdSidenavModule
 } from '@angular/material';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   imports: [BrowserModule, NoopAnimationsModule, MdSidenavModule, MdIconModule,
-    MdButtonModule, SharedModule.forRoot(),
+    MdButtonModule, SharedModule.forRoot(), FlexLayoutModule,
     HttpModule, AppRoutingModule, AboutModule, HomeModule,
     LoginModule, ToolsModule,GraphModule],
   declarations: [AppComponent],

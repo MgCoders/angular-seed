@@ -6,7 +6,8 @@ import { ToolService } from '../_services/tool.service';
 
 @Component({
   moduleId: module.id,
-  templateUrl: 'tools.component.html'
+  templateUrl: 'tools.component.html',
+  styleUrls: ['tools.component.css']
 })
 
 export class ToolsComponent implements OnInit {

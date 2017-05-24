@@ -29,7 +29,9 @@ import {
     MdToolbarModule, MdButtonModule, MdCardModule, MdListModule, MdIconModule, MdMenuModule],
   declarations: [ToolbarComponent, NavbarComponent, VisCanvasComponent],
   exports: [ToolbarComponent, NavbarComponent,
-    CommonModule, FormsModule, RouterModule, VisCanvasComponent]
+    CommonModule, FormsModule, RouterModule, VisCanvasComponent,
+    MdSidenavModule,
+    MdToolbarModule, MdButtonModule, MdCardModule, MdListModule, MdIconModule, MdMenuModule]
 })
 export class SharedModule {
   static forRoot(): ModuleWithProviders {

@@ -1,10 +1,10 @@
 <md-sidenav-container fullscreen>
   <sd-toolbar [sidenavOpened]="sidenav_opened" (toogleSideNavEvent)="sidenav.open()"></sd-toolbar>
-  <md-sidenav #sidenav mode="over" (opened)="sidenav_opened">
+  <md-sidenav #sidenav mode="push" (opened)="sidenav_opened">
     <sd-navbar></sd-navbar>
   </md-sidenav>
 
-  <div class="main-content">
+  <div>
 
     <router-outlet></router-outlet>
 
