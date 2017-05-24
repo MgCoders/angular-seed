@@ -1,8 +1,11 @@
 import {
   Component,
-  OnInit
+  OnInit,
+  ViewChild
 } from '@angular/core';
 import { ToolService } from '../_services/tool.service';
+import { Tool } from '../_models/tool';
+import { MdSidenav } from '@angular/material';
 
 @Component({
   moduleId: module.id,
@@ -12,7 +15,10 @@ import { ToolService } from '../_services/tool.service';
 
 export class ToolsComponent implements OnInit {
   errorMessage: string;
-  tools: any[] = [];
+  tools: Tool[] = [];
+  selectedTool: Tool = null;
+  @ViewChild('detailSideNav')
+  detailSideNav: MdSidenav;
 
   constructor(public toolService: ToolService) {
   }
@@ -27,6 +33,15 @@ export class ToolsComponent implements OnInit {
         tools => this.tools = tools,
         error => this.errorMessage = <any>error
       );
+  }
+
+  selectTool(tool: Tool) {
+    this.selectedTool = tool;
+    this.detailSideNav.open();
+  }
+
+  public detailSideNavClosed(): void {
+    this.selectedTool = null;
   }
 
 }

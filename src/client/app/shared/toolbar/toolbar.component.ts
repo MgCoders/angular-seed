@@ -25,5 +25,7 @@ export class ToolbarComponent {
     this.sidenavOpened = !this.sidenavOpened;
     this.toogleSideNavEvent.emit(this.sidenavOpened);
   }
+
+
 }
 

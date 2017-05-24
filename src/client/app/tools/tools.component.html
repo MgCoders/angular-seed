@@ -1,4 +1,4 @@
-<md-sidenav-container>
+<md-sidenav-container class="sidenav-container">
   <div fxLayout="row" fxLayoutWrap fxLayoutAlign="space-middle center">
     <md-card fxFlex="40" class="example-card">
       <md-card-header>
@@ -17,37 +17,42 @@
 
       </md-card-actions>
     </md-card>
-    <md-card *ngFor="let tool of tools" class="example-card" fxFlex="30">
+    <md-card *ngFor="let tool of tools" class="example-card" fxFlex="20">
       <md-card-header>
         <md-card-title><h4>{{tool.name}}</h4></md-card-title>
         <md-card-subtitle>{{tool.descripcion}}</md-card-subtitle>
       </md-card-header>
-      <md-card-content>
-      <pre class="card-content">
-        {{tool.cwl}}
-      </pre>
-      </md-card-content>
+
       <md-card-actions>
         <a md-button>
           <md-icon>delete</md-icon>
         </a>
-        <a md-button (click)="detailSideNav.open()">
-          <md-icon>edit</md-icon>
+        <a md-button (click)="selectTool(tool)">
+          <md-icon>info</md-icon>
         </a>
 
       </md-card-actions>
     </md-card>
   </div>
 
-  <md-sidenav #detailSideNav mode="over" align="end">
-    <md-toolbar>
+  <md-sidenav #detailSideNav mode="over" align="end" (onClose)="detailSideNavClosed()">
+    <div *ngIf="selectedTool">
+      <md-toolbar>
 
-      <a md-button>
-        <md-icon>delete</md-icon>
-      </a>
-      <a md-button (click)="detailSideNav.open()">
-        <md-icon>edit</md-icon>
-      </a>
-    </md-toolbar>
+        <a md-button>
+          <md-icon>delete</md-icon>
+        </a>
+        <a md-button (click)="detailSideNav.open()">
+          <md-icon>edit</md-icon>
+        </a>
+      </md-toolbar>
+      <div class="selected-tool-content">
+        <h3>{{selectedTool.name}}</h3>
+        <p>{{selectedTool.descripcion}}</p>
+        <pre class="cwl-content">
+        {{selectedTool.cwl}}
+      </pre>
+      </div>
+    </div>
   </md-sidenav>
 </md-sidenav-container>

@@ -5,3 +5,21 @@
 .example-card {
   margin: 15px;
 }
+
+.selected-tool-content {
+  padding: 5%;
+}
+
+.cwl-content {
+  max-height: 200px;
+  width: 100%;
+}
+
+.sidenav-container {
+
+}
+
+.sidenav-container md-sidenav {
+  max-width: 50%;
+
+}
