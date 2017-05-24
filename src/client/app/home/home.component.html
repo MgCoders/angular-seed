@@ -1,23 +1,15 @@
 
-  <!-- A sidebar -->
-    <p>Howdy! Here's a list of awesome computer scientists. Do you know any others? Add to the list yourself.</p>
-
-    <form (submit)="addName()">
-      <input [(ngModel)]="newName" name="newName" placeholder="Awesome Computer Scientist">
-      <button type="submit">Add</button>
-    </form>
-
-    <ul>
-      <li *ngFor="let name of names">{{name}}</li>
-    </ul>
-
-
-
-
-  <!-- Page content -->
 
 
 
 
 
+<md-list>
+  <h3 md-subheader>Folders</h3>
+  <md-list-item *ngFor="let tool of tools">
+    <md-icon md-list-icon>folder</md-icon>
+    <h4 md-line>{{tool.name}}</h4>
+    <p md-line> {{tool.cwl}} </p>
+  </md-list-item>
 
+</md-list>
