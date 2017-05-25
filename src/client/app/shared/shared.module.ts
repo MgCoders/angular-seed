@@ -16,7 +16,9 @@ import {
   MdIconModule,
   MdListModule,
   MdMenuModule,
-  MdSidenavModule, MdSnackBarModule,
+  MdSidenavModule,
+  MdSlideToggleModule,
+  MdSnackBarModule,
   MdToolbarModule
 } from '@angular/material';
 
@@ -26,12 +28,14 @@ import {
 
 @NgModule({
   imports: [CommonModule, RouterModule,MdSidenavModule,
-    MdToolbarModule, MdButtonModule, MdCardModule, MdListModule, MdIconModule, MdMenuModule,MdSnackBarModule],
+    MdToolbarModule, MdButtonModule, MdCardModule, MdListModule, MdIconModule,
+    MdMenuModule, MdSnackBarModule, MdSlideToggleModule],
   declarations: [ToolbarComponent, NavbarComponent, VisCanvasComponent],
   exports: [ToolbarComponent, NavbarComponent,
     CommonModule, FormsModule, RouterModule, VisCanvasComponent,
     MdSidenavModule,
-    MdToolbarModule, MdButtonModule, MdCardModule, MdListModule, MdIconModule, MdMenuModule, MdSnackBarModule]
+    MdToolbarModule, MdButtonModule, MdCardModule, MdListModule, MdIconModule,
+    MdMenuModule, MdSnackBarModule, MdSlideToggleModule]
 })
 export class SharedModule {
   static forRoot(): ModuleWithProviders {
