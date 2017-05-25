@@ -9,11 +9,12 @@ import {
   MdInputModule
 } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ToolDetailComponent } from './tool-detail.component';
 
 
 @NgModule({
   imports: [ToolsRoutingModule, SharedModule.forRoot(), MdCardModule, MdButtonModule, FlexLayoutModule, MdInputModule, MdButtonModule],
-  declarations: [ToolsComponent],
+  declarations: [ToolsComponent,ToolDetailComponent],
   exports: [ToolsComponent],
   providers: [ToolService]
 })

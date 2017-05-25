@@ -1,5 +1,5 @@
 <md-sidenav-container class="sidenav-container">
-  <div fxLayout="row" fxLayoutWrap fxLayoutAlign="space-middle center">
+  <div fxLayout="row" fxLayoutWrap fxLayoutAlign="space-middle stretch" >
     <md-card fxFlex="40" class="example-card">
       <md-card-header>
         <md-card-title><h3>Herramientas disponibles</h3></md-card-title>
@@ -11,9 +11,9 @@
       </md-card-content>
 
       <md-card-actions>
-        <a md-mini-fab>
+        <button md-mini-fab (click)="newTool()">
           <md-icon>add</md-icon>
-        </a>
+        </button>
 
       </md-card-actions>
     </md-card>
@@ -24,9 +24,6 @@
       </md-card-header>
 
       <md-card-actions>
-        <a md-button>
-          <md-icon>delete</md-icon>
-        </a>
         <a md-button (click)="selectTool(tool)">
           <md-icon>info</md-icon>
         </a>
@@ -35,24 +32,18 @@
     </md-card>
   </div>
 
-  <md-sidenav #detailSideNav mode="over" align="end" (onClose)="detailSideNavClosed()">
-    <div *ngIf="selectedTool">
-      <md-toolbar>
+  <md-sidenav #detailSideNav mode="over" align="end" (onClose)="detailSideNavClosed()" >
 
-        <a md-button>
-          <md-icon>delete</md-icon>
-        </a>
-        <a md-button (click)="detailSideNav.open()">
-          <md-icon>edit</md-icon>
-        </a>
-      </md-toolbar>
-      <div class="selected-tool-content">
+
+
+       <tool-detail #detailForm (toolsChange)="toolsChanged()"></tool-detail>
+     <!--  <div class="selected-tool-content">
         <h3>{{selectedTool.name}}</h3>
         <p>{{selectedTool.descripcion}}</p>
         <pre class="cwl-content">
         {{selectedTool.cwl}}
       </pre>
-      </div>
-    </div>
+      </div>-->
+
   </md-sidenav>
 </md-sidenav-container>

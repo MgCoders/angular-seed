@@ -5,7 +5,7 @@ import {
   RequestOptions,
   Response
 } from '@angular/http';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
 import { AuthenticationService } from '../_services/index';
