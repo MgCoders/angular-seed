@@ -18,12 +18,27 @@
     </button>
   </md-menu>
 </md-toolbar>
-<md-nav-list class="nav-list">
-  <a md-list-item [routerLink]="['/']" [routerLinkActive]="['router-link-active']"
-     [routerLinkActiveOptions]="{exact:true}">
 
-    <span><md-icon>home</md-icon> Home</span>
-  </a>
+<md-nav-list>
+  <md-list-item [routerLink]="['/']" [routerLinkActive]="['router-link-active']"
+                [routerLinkActiveOptions]="{exact:true}">
+    <md-icon md-list-icon>home</md-icon>
+    <h4 md-line> Home</h4>
+  </md-list-item>
+  <md-divider></md-divider>
+  <md-list-item [routerLink]="['/tools']" [routerLinkActive]="['router-link-active']"
+                [routerLinkActiveOptions]="{exact:true}">
+    <md-icon md-list-icon>build</md-icon>
+    <h4 md-line>Tools</h4>
+  </md-list-item>
+  <md-divider></md-divider>
+  <md-list-item [routerLink]="['/graph']" [routerLinkActive]="['router-link-active']"
+                [routerLinkActiveOptions]="{exact:true}">
+    <md-icon md-list-icon>group_work</md-icon>
+    <h4 md-line>Workflows</h4>
+  </md-list-item>
+<!--
+
   <md-divider></md-divider>
   <a md-list-item [routerLink]="['/about']" [routerLinkActive]="['router-link-active']"
      [routerLinkActiveOptions]="{exact:true}">ABOUT</a>
@@ -38,5 +53,5 @@
   <md-divider></md-divider>
 
   <a md-list-item [routerLink]="['/graph']" [routerLinkActive]="['router-link-active']"
-     [routerLinkActiveOptions]="{exact:true}">Graph</a>
+     [routerLinkActiveOptions]="{exact:true}">Graph</a>-->
 </md-nav-list>
