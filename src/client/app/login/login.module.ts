@@ -6,12 +6,14 @@ import { UserService } from '../_services/user.service';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { LoginRoutingModule } from './login-routing.module';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
     LoginRoutingModule,
     FormsModule,
-    BrowserModule
+    BrowserModule,
+    SharedModule.forRoot()
   ],
   declarations: [
     LoginComponent

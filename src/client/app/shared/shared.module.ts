@@ -14,6 +14,7 @@ import {
   MdButtonModule,
   MdCardModule,
   MdIconModule,
+  MdInputModule,
   MdListModule,
   MdMenuModule,
   MdSidenavModule,
@@ -21,6 +22,7 @@ import {
   MdSnackBarModule,
   MdToolbarModule
 } from '@angular/material';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 /**
  * Do not specify providers for modules that might be imported by a lazy loaded module.
@@ -29,13 +31,13 @@ import {
 @NgModule({
   imports: [CommonModule, RouterModule,MdSidenavModule,
     MdToolbarModule, MdButtonModule, MdCardModule, MdListModule, MdIconModule,
-    MdMenuModule, MdSnackBarModule, MdSlideToggleModule],
+    MdMenuModule, MdSnackBarModule, MdSlideToggleModule, MdInputModule, FlexLayoutModule],
   declarations: [ToolbarComponent, NavbarComponent, VisCanvasComponent],
   exports: [ToolbarComponent, NavbarComponent,
     CommonModule, FormsModule, RouterModule, VisCanvasComponent,
     MdSidenavModule,
     MdToolbarModule, MdButtonModule, MdCardModule, MdListModule, MdIconModule,
-    MdMenuModule, MdSnackBarModule, MdSlideToggleModule]
+    MdMenuModule, MdSnackBarModule, MdSlideToggleModule, MdInputModule, FlexLayoutModule]
 })
 export class SharedModule {
   static forRoot(): ModuleWithProviders {

@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Output
+} from '@angular/core';
 
 /**
  * This class represents the navigation bar component.
@@ -10,4 +14,11 @@ import { Component } from '@angular/core';
   styleUrls: ['navbar.component.css'],
 })
 export class NavbarComponent {
+
+  @Output()
+  toogleSideNavEvent: EventEmitter<boolean> = new EventEmitter();
+
+  public close(): void {
+    this.toogleSideNavEvent.emit(true);
+  }
 }

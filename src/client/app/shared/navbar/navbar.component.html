@@ -4,19 +4,19 @@
 
 <md-nav-list>
   <md-list-item [routerLink]="['/']" [routerLinkActive]="['router-link-active']"
-                [routerLinkActiveOptions]="{exact:true}">
+                [routerLinkActiveOptions]="{exact:true}" (click)="close()">
     <md-icon md-list-icon>home</md-icon>
     <h4 md-line> Home</h4>
   </md-list-item>
   <md-divider></md-divider>
   <md-list-item [routerLink]="['/tools']" [routerLinkActive]="['router-link-active']"
-                [routerLinkActiveOptions]="{exact:true}">
+                [routerLinkActiveOptions]="{exact:true}" (click)="close()">
     <md-icon md-list-icon>build</md-icon>
     <h4 md-line>Tools</h4>
   </md-list-item>
   <md-divider></md-divider>
   <md-list-item [routerLink]="['/graph']" [routerLinkActive]="['router-link-active']"
-                [routerLinkActiveOptions]="{exact:true}">
+                [routerLinkActiveOptions]="{exact:true}" (click)="close()">
     <md-icon md-list-icon>group_work</md-icon>
     <h4 md-line>Workflows</h4>
   </md-list-item>

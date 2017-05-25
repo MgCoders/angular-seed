@@ -2,7 +2,7 @@
   <sd-toolbar [sidenavOpened]="sidenav_opened" (toogleSideNavEvent)="sidenav.open()"></sd-toolbar>
   <md-sidenav-container fxFlex>
     <md-sidenav #sidenav mode="push" (opened)="sidenav_opened" align="start">
-      <sd-navbar></sd-navbar>
+      <sd-navbar (toogleSideNavEvent)="sidenav.close()"></sd-navbar>
     </md-sidenav>
     <router-outlet></router-outlet>
   </md-sidenav-container>
