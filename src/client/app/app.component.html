@@ -1,14 +1,9 @@
-<md-sidenav-container fullscreen fxFlex>
+<div fxLayout="column" fxFlex>
   <sd-toolbar [sidenavOpened]="sidenav_opened" (toogleSideNavEvent)="sidenav.open()"></sd-toolbar>
-  <md-sidenav #sidenav mode="push" (opened)="sidenav_opened">
-    <sd-navbar></sd-navbar>
-  </md-sidenav>
-
-  <div class="flex-container">
-
+  <md-sidenav-container fxFlex>
+    <md-sidenav #sidenav mode="push" (opened)="sidenav_opened" align="start">
+      <sd-navbar></sd-navbar>
+    </md-sidenav>
     <router-outlet></router-outlet>
-
-  </div>
-</md-sidenav-container>
-
-
+  </md-sidenav-container>
+</div>

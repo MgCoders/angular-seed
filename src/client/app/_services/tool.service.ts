@@ -28,18 +28,20 @@ export class ToolService {
   }
 
   saveTool(tool: Tool):Observable<Response> {
+    console.info('SAVE' + tool);
     // add authorization header with jwt token
     let headers = new Headers({'Authorization': this.authenticationService.token});
     let options = new RequestOptions({headers: headers});
-    return this.http.post(Config.API+'/omicflows-backend/rest/tools',tool,options)
+    return this.http.post(Config.API + '/omicflows-backend/rest/tools/save', tool, options)
       .map((response: Response) => response);
   }
 
   deleteTool(tool: Tool):Observable<Response> {
+    console.info('DELETE' + tool);
     // add authorization header with jwt token
     let headers = new Headers({'Authorization': this.authenticationService.token});
     let options = new RequestOptions({headers: headers});
-    return this.http.delete(Config.API+'/omicflows-backend/rest/tools/'+tool.id,options)
+    return this.http.delete(Config.API + '/omicflows-backend/rest/tools/delete/' + tool.id, options)
       .map((response: Response) => response);
   }
 

@@ -1,8 +1,12 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output
+} from '@angular/core';
 import { Tool } from '../_models/tool';
 import { ToolService } from '../_services/tool.service';
 import { MdSnackBar } from '@angular/material';
-import { errorHandler } from '@angular/platform-browser/src/browser';
 @Component({
   moduleId: module.id,
   selector: 'tool-detail',
@@ -25,7 +29,6 @@ export class ToolDetailComponent {
   }
 
   onSubmit() {
-    console.info(this.tool);
     this.toolService.saveTool(this.tool)
       .subscribe(
         res => this.submitSucceded(res.json()),
@@ -54,11 +57,11 @@ export class ToolDetailComponent {
     this.tool = null;
     this.isEdit = false;
     this.isNew = false;
-    console.info(res);
+    this.toolsChange.emit(true);
   }
 
 
-  private handleError(error: Response) {
+  private handleError(error: any) {
     console.info(error);
     if (error.status === 304) {
       this.notify('error trying to edit','Ok');

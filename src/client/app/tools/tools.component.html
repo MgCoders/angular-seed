@@ -1,6 +1,8 @@
-<md-sidenav-container class="sidenav-container">
-  <div fxLayout="row" fxLayoutWrap fxLayoutAlign="space-middle stretch" >
-    <md-card fxFlex="40" class="example-card">
+<md-sidenav-container fxFlex>
+  <!--No puedo hacer que ocupe all espacio vertical
+  si le pongo el container, y sin el no hay backdrop-->
+  <div>
+    <md-card class="example-card">
       <md-card-header>
         <md-card-title><h3>Herramientas disponibles</h3></md-card-title>
       </md-card-header>
@@ -17,7 +19,7 @@
 
       </md-card-actions>
     </md-card>
-    <md-card *ngFor="let tool of tools" class="example-card" fxFlex="20">
+    <md-card *ngFor="let tool of tools" class="example-card">
       <md-card-header>
         <md-card-title><h4>{{tool.name}}</h4></md-card-title>
         <md-card-subtitle>{{tool.descripcion}}</md-card-subtitle>
@@ -31,8 +33,9 @@
       </md-card-actions>
     </md-card>
   </div>
+  <md-sidenav #detailSideNav mode="over" align="end" (close)="detailSideNavClosed()">
 
-  <md-sidenav #detailSideNav mode="over" align="end" (onClose)="detailSideNavClosed()" >
-       <tool-detail #detailForm (toolsChange)="toolsChanged()"></tool-detail>
+    <tool-detail fxFlex #detailForm (toolsChange)="toolsChanged()"></tool-detail>
   </md-sidenav>
+
 </md-sidenav-container>
