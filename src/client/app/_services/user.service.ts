@@ -7,7 +7,7 @@ import {
 } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
-
+import { Config } from '../shared/config/env.config';
 import { AuthenticationService } from '../_services/index';
 import { User } from '../_models/index';
 
@@ -23,7 +23,7 @@ export class UserService {
     let options = new RequestOptions({headers: headers});
 
     // get users from api
-    return this.http.get('/api/users', options)
+    return this.http.get(Config.API+'/api/users', options)
       .map((response: Response) => response.json());
   }
 }
