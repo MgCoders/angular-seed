@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output } from '@angular/core';
 declare var vis:any;
 /**
  * This class represents the toolbar component.
@@ -10,6 +10,9 @@ declare var vis:any;
   styleUrls: ['vis-canvas.component.css']
 })
 export class VisCanvasComponent implements OnInit {
+
+   @Output()
+   clickEvent:EventEmitter<any> = new EventEmitter();
 
   constructor(private element: ElementRef) {
   }
@@ -40,6 +43,10 @@ export class VisCanvasComponent implements OnInit {
     };
     var options = {};
     var network = new vis.Network(container, data, options);
+
+    network.on('click', (obj:any) => this.clickEvent.emit(obj));
   }
+
+
 }
 

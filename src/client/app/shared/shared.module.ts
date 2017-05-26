@@ -19,7 +19,7 @@ import {
   MdMenuModule,
   MdSidenavModule,
   MdSlideToggleModule,
-  MdSnackBarModule,
+  MdSnackBarModule, MdTabsModule,
   MdToolbarModule
 } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -31,13 +31,13 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 @NgModule({
   imports: [CommonModule, RouterModule,MdSidenavModule,
     MdToolbarModule, MdButtonModule, MdCardModule, MdListModule, MdIconModule,
-    MdMenuModule, MdSnackBarModule, MdSlideToggleModule, MdInputModule, FlexLayoutModule],
+    MdMenuModule, MdSnackBarModule, MdSlideToggleModule, MdInputModule, FlexLayoutModule,MdTabsModule],
   declarations: [ToolbarComponent, NavbarComponent, VisCanvasComponent],
   exports: [ToolbarComponent, NavbarComponent,
     CommonModule, FormsModule, RouterModule, VisCanvasComponent,
     MdSidenavModule,
     MdToolbarModule, MdButtonModule, MdCardModule, MdListModule, MdIconModule,
-    MdMenuModule, MdSnackBarModule, MdSlideToggleModule, MdInputModule, FlexLayoutModule]
+    MdMenuModule, MdSnackBarModule, MdSlideToggleModule, MdInputModule, FlexLayoutModule,MdTabsModule]
 })
 export class SharedModule {
   static forRoot(): ModuleWithProviders {
