@@ -1,7 +1,7 @@
 #/bin/bash
 set -x
 echo Logging in to Amazon ECR...
-$(aws ecr get-login --region $AWS_DEFAULT_REGION)
+$(aws ecr get-login --region us-east-1)
 echo cd omicflows-frontend-deploy en home
 cd /home/ubuntu/omicflows-frontend-deploy
 echo docker-compose up
