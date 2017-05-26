@@ -1,4 +1,10 @@
-import { Component, ElementRef, EventEmitter, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  OnInit,
+  Output
+} from '@angular/core';
 import { Tool } from '../../_models/tool';
 
 declare var vis:any;
@@ -63,7 +69,7 @@ export class VisCanvasComponent implements OnInit {
     this.network.on('click', (obj:any) => this.clickEvent.emit(obj));
   }
 
-  public addWorkflowStep(tool:Tool) {
+  public addWorkflowStep(tool: any) {
     //TODO: antes de esto un modal? que presente opciones para los links entres steps
     //TODO: acá va a ser más complejo, ir al webservice generar el step con los links, etc
       var node = new Node();
@@ -71,10 +77,7 @@ export class VisCanvasComponent implements OnInit {
       node.label = tool.name;
       node.id = tool.id;
       this.nodes.add(node);
-      this.network.redraw();
   }
-
-
 
 
 }

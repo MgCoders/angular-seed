@@ -19,12 +19,14 @@
     </md-tab-group>
   </md-sidenav>
 
-  <div fxLayout="row" fxLayoutAlign="start start">
+  <div fxLayout="row" fxLayoutAlign="start stretch" *ngIf="activeWorkflow">
     <md-card fxFlex="20" class="panel-card">
       <md-card-header>
-        <md-card-title><h4>Herramientas</h4></md-card-title>
+        <md-card-title><h4>Nuevo workflow</h4></md-card-title>
+        <md-card-subtitle>{{activeWorkflow.name}}</md-card-subtitle>
       </md-card-header>
       <md-card-content>
+        <h4>Herramientas</h4>
         <md-list>
 
 
@@ -32,7 +34,7 @@
             <md-icon md-list-icon>folder</md-icon>
             <h4 md-line>{{tool.name}}</h4>
             <p md-line> {{tool.cwl}} </p>
-            <button md-mini-fab (click)="visCanvas.addWorkflowStep(tool)">
+            <button md-mini-fab (click)="newStep(tool)">
               <md-icon>add</md-icon>
             </button>
           </md-list-item>

@@ -1,6 +1,6 @@
 <form #toolDetail="ngForm" (ngSubmit)="onSubmit()">
   <md-toolbar>
-    <button md-button type="button" (click)="deleteSucceded()">
+    <button md-button type="button" (click)="toolDetail.form.reset(); deleteSucceded()">
       <md-icon>close</md-icon>
     </button>
     <button md-button type="button" *ngIf="tool && tool.id" (click)="deleteTool()">
