@@ -3,7 +3,7 @@
 
   <div fxLayout="row" fxLayoutAlign="start start">
 
-    <md-card class="example-card">
+    <md-card class="panel-card">
       <md-card-header>
         <md-card-title><h4>Herramientas disponibles</h4></md-card-title>
       </md-card-header>
@@ -24,7 +24,7 @@
 
       </md-card-actions>
     </md-card>
-    <md-card *ngFor="let tool of tools" class="example-card">
+    <md-card *ngFor="let tool of tools" class="panel-card">
       <md-card-header>
         <md-card-title><h4>{{tool.name}}</h4></md-card-title>
         <md-card-subtitle>{{tool.descripcion}}</md-card-subtitle>

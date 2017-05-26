@@ -1,4 +1,4 @@
-<md-sidenav-container>
+<md-sidenav-container fxFill>
   <md-sidenav #graphDetail mode="over" align="end" [opened]="selectedObject" onclose="exitDetail()">
     <md-toolbar>
       <button md-button type="button" (click)="exitDetail()">
@@ -19,8 +19,30 @@
     </md-tab-group>
   </md-sidenav>
 
+  <div fxLayout="row" fxLayoutAlign="start start">
+    <md-card fxFlex="20" class="panel-card">
+      <md-card-header>
+        <md-card-title><h4>Herramientas</h4></md-card-title>
+      </md-card-header>
+      <md-card-content>
+        <md-list>
 
-  <vis-canvas (clickEvent)="canvasClicked($event)"></vis-canvas>
 
+          <md-list-item *ngFor="let tool of tools">
+            <md-icon md-list-icon>folder</md-icon>
+            <h4 md-line>{{tool.name}}</h4>
+            <p md-line> {{tool.cwl}} </p>
+            <button md-mini-fab (click)="visCanvas.addWorkflowStep(tool)">
+              <md-icon>add</md-icon>
+            </button>
+          </md-list-item>
+
+        </md-list>
+      </md-card-content>
+    </md-card>
+    <md-card fxFlex class="panel-card">
+      <vis-canvas #visCanvas (clickEvent)="canvasClicked($event)"></vis-canvas>
+    </md-card>
+  </div>
 </md-sidenav-container>
 

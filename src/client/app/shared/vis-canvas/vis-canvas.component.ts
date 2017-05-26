@@ -1,4 +1,6 @@
 import { Component, ElementRef, EventEmitter, OnInit, Output } from '@angular/core';
+import { Tool } from '../../_models/tool';
+
 declare var vis:any;
 /**
  * This class represents the toolbar component.
@@ -13,14 +15,25 @@ export class VisCanvasComponent implements OnInit {
 
    @Output()
    clickEvent:EventEmitter<any> = new EventEmitter();
+   nodes:any = new vis.DataSet([]);
+   edges:any = new vis.DataSet([]);
+   container:any;
+   network:any;
 
   constructor(private element: ElementRef) {
+
   }
 
   ngOnInit(): void {
+    this.container = document.getElementById('mynetwork');
+    var data = {
+      nodes: this.nodes,
+      edges: this.edges
+    };
+    var options = {};
+    this.network = new vis.Network(this.container, data, options);
 
-
-    var nodes = new vis.DataSet([
+    /*var nodes = new vis.DataSet([
       {id: 1, label: 'Node 1'},
       {id: 2, label: 'Node 2'},
       {id: 3, label: 'Node 3'},
@@ -42,11 +55,30 @@ export class VisCanvasComponent implements OnInit {
       edges: edges
     };
     var options = {};
-    var network = new vis.Network(container, data, options);
+    var network = new vis.Network(container, data, options);*/
+    this.nodes.add({label:'HOLA',id:1});
+    this.nodes.add({label:'CHAU',id:2});
+    this.edges.add({to:1,from:2});
 
-    network.on('click', (obj:any) => this.clickEvent.emit(obj));
+    this.network.on('click', (obj:any) => this.clickEvent.emit(obj));
+  }
+
+  public addWorkflowStep(tool:Tool) {
+      var node = new Node();
+      node.tool = tool;
+      node.label = tool.name;
+      node.id = tool.id;
+      this.nodes.add(node);
+      this.network.redraw();
   }
 
 
+
+
+}
+export class Node {
+  tool:Tool;
+  id:string;
+  label:string;
 }
 

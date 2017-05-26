@@ -47,3 +47,7 @@ sd-app {
 .divider-color {
   border-color: #BDBDBD;
 }
+
+.panel-card {
+  margin: 15px;
+}
