@@ -1,7 +1,7 @@
 <md-sidenav-container fxFlex>
   <!--No puedo hacer que ocupe all espacio vertical
   si le pongo el container, y sin el no hay backdrop-->
-  <div>
+  <div fxLayout="column">
     <md-card class="example-card">
       <md-card-header>
         <md-card-title><h3>Herramientas disponibles</h3></md-card-title>
@@ -32,6 +32,7 @@
 
       </md-card-actions>
     </md-card>
+    <span fxFlex></span>
   </div>
   <md-sidenav #detailSideNav mode="over" align="end" (close)="detailSideNavClosed()">
 
