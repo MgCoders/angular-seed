@@ -14,7 +14,7 @@
     </button>
 
   </md-toolbar>
-  <div fxLayout="column" fxLayoutAlign="space-around stretch" class="form-container" *ngIf="tool">
+  <div  fxLayout="column"  class="form-container" *ngIf="tool">
 
     <md-input-container *ngIf="isEditEnabled()">
       <input mdInput placeholder="Name" name="name" required [(ngModel)]="tool.name">
@@ -27,10 +27,12 @@
     </md-input-container>
     <label *ngIf="!isEditEnabled()">{{tool.descripcion}}</label>
 
-    <md-input-container *ngIf="isEditEnabled()">
-      <textarea mdInput placeholder="Cwl code" name="cwl" required [(ngModel)]="tool.cwl"></textarea>
+    <!--TODO: Si el texto del cwl desborda, debería aparecer scroll dentro del cuandro de texto y no scroll en el parent -->
+    <div fxLayout="row" fxFlex="10">
+    <md-input-container *ngIf="isEditEnabled()" >
+      <textarea  mdInput placeholder="Cwl code" name="cwl" required [(ngModel)]="tool.cwl"></textarea>
     </md-input-container>
-    <pre *ngIf="!isEditEnabled()">{{tool.cwl}}</pre>
-
+    <pre fxFill *ngIf="!isEditEnabled()">{{tool.cwl}}</pre>
+    </div>
   </div>
 </form>

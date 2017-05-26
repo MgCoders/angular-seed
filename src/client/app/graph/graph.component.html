@@ -1,29 +1,26 @@
+<md-sidenav-container>
+  <md-sidenav #graphDetail mode="over" align="end" [opened]="selectedObject" onclose="exitDetail()">
+    <md-toolbar>
+      <button md-button type="button" (click)="exitDetail()">
+        <md-icon>close</md-icon>
+      </button>
+      <button md-button type="button">
+        <md-icon>delete</md-icon>
+      </button>
+      <a md-button type="button">
+        <md-icon>edit</md-icon>
+      </a>
 
 
-
-  <md-sidenav-container>
-    <md-sidenav #graphDetail mode="over" align="end" [opened]="selectedObject" onclose="exitDetail()">
-      <md-toolbar>
-        <button md-button type="button" (click)="exitDetail()">
-          <md-icon>close</md-icon>
-        </button>
-        <button md-button type="button">
-          <md-icon>delete</md-icon>
-        </button>
-        <a md-button type="button" >
-          <md-icon>edit</md-icon>
-        </a>
+    </md-toolbar>
+    <md-tab-group *ngIf="selectedObject">
+      <md-tab label="Node Detail">{{selectedObject.nodes}}</md-tab>
+      <md-tab label="Other stuff">Content 2</md-tab>
+    </md-tab-group>
+  </md-sidenav>
 
 
-      </md-toolbar>
-      <md-tab-group *ngIf="selectedObject">
-        <md-tab label="Node Detail">{{selectedObject.nodes}}</md-tab>
-        <md-tab label="Other stuff">Content 2</md-tab>
-      </md-tab-group>
-    </md-sidenav>
+  <vis-canvas (clickEvent)="canvasClicked($event)"></vis-canvas>
 
-
-    <vis-canvas (clickEvent)="canvasClicked($event)"></vis-canvas>
-
-  </md-sidenav-container>
+</md-sidenav-container>
 

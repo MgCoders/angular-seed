@@ -1,20 +1,25 @@
-<md-sidenav-container fxFlex>
-  <!--No puedo hacer que ocupe all espacio vertical
-  si le pongo el container, y sin el no hay backdrop-->
-  <div fxLayout="column">
+<md-sidenav-container fxFill>
+
+
+  <div fxLayout="row" fxLayoutAlign="start start">
+
     <md-card class="example-card">
       <md-card-header>
-        <md-card-title><h3>Herramientas disponibles</h3></md-card-title>
+        <md-card-title><h4>Herramientas disponibles</h4></md-card-title>
       </md-card-header>
       <md-card-content>
         <md-input-container>
-          <input mdInput placeholder="Búsqueda..." value="Sushi">
+          <input mdInput placeholder="Búsqueda..." value="">
         </md-input-container>
-      </md-card-content>
 
+
+      </md-card-content>
       <md-card-actions>
-        <button md-mini-fab (click)="newTool()">
+        <span fxFlex></span>
+        <button md-button (click)="newTool()">
           <md-icon>add</md-icon>
+
+          <span>New</span>
         </button>
 
       </md-card-actions>
@@ -24,19 +29,26 @@
         <md-card-title><h4>{{tool.name}}</h4></md-card-title>
         <md-card-subtitle>{{tool.descripcion}}</md-card-subtitle>
       </md-card-header>
-
+      <md-card-content>
+        <div fxLayout="column" fxLayoutAlign="center center" >
+          <!--TODO: debería ser un enlace guardado en el objeto que viene de bd y ser distinto para cada uno -->
+          <img src="https://s3.amazonaws.com/of-tools-icons/d2.png">
+        </div>
+      </md-card-content>
       <md-card-actions>
-        <a md-button (click)="selectTool(tool)">
+        <span fxFlex></span>
+        <button md-button (click)="selectTool(tool)">
           <md-icon>info</md-icon>
-        </a>
+        </button>
 
       </md-card-actions>
     </md-card>
-    <span fxFlex></span>
   </div>
+
   <md-sidenav #detailSideNav mode="over" align="end" (close)="detailSideNavClosed()">
 
-    <tool-detail fxFlex #detailForm (toolsChange)="toolsChanged()"></tool-detail>
+    <tool-detail #detailForm (toolsChange)="toolsChanged()"></tool-detail>
+
   </md-sidenav>
 
 </md-sidenav-container>
