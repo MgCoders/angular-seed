@@ -64,6 +64,8 @@ export class VisCanvasComponent implements OnInit {
   }
 
   public addWorkflowStep(tool:Tool) {
+    //TODO: antes de esto un modal? que presente opciones para los links entres steps
+    //TODO: acá va a ser más complejo, ir al webservice generar el step con los links, etc
       var node = new Node();
       node.tool = tool;
       node.label = tool.name;
