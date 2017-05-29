@@ -48,13 +48,14 @@ export class GraphComponent implements OnInit {
   }
 
   canvasClicked(obj: any) {
-    var selectedNode = obj.edges[0];
+    var selectedNode = obj.nodes[0];
     console.info(selectedNode);
     if (selectedNode) {
-      console.info(selectedNode);
-      var step = this.activeWorkflow.steps.find(step => step.name === selectedNode.id);
+      var step = this.activeWorkflow.steps.find(step => step.name === selectedNode);
+      console.info(step);
       this.selectedIsNew = false;
       this.selectedObject = step;
+      this.detailSideNav.open();
     }
   }
 
