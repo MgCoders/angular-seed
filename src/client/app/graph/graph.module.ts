@@ -4,11 +4,12 @@ import { SharedModule } from '../shared/shared.module';
 import { GraphRoutingModule } from './graph-routing.module';
 import { GraphComponent } from './graph.component';
 import { WorkflowService } from '../_services/workflow.service';
+import { StepDetailComponent } from './step-detail.component';
 
 @NgModule({
   imports: [CommonModule, GraphRoutingModule,SharedModule],
-  declarations: [GraphComponent],
-  exports: [GraphComponent],
+  declarations: [GraphComponent,StepDetailComponent],
+  exports: [GraphComponent,StepDetailComponent],
   providers: [WorkflowService]
 })
 export class GraphModule {

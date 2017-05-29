@@ -6,6 +6,9 @@ import {
   Output
 } from '@angular/core';
 import { Tool } from '../../_models/tool';
+import { Workflow } from '../../_models/workflow';
+import { forEach } from '@angular/router/src/utils/collection';
+import { WorkflowStep } from '../../_models/workflowStep';
 
 declare var vis:any;
 /**
@@ -36,7 +39,32 @@ export class VisCanvasComponent implements OnInit {
       nodes: this.nodes,
       edges: this.edges
     };
-    var options = {};
+    var options = {
+      autoResize: true,
+      height: '100%',
+      width: '100%',
+      layout: {
+        hierarchical:
+          {
+            enabled: true,
+            direction: 'DU'
+          }
+      },
+      physics: {
+        enabled: false
+      },
+      manipulation: {
+        enabled: false
+      },
+      nodes:{
+        shape: 'image',
+        image:'https://s3.amazonaws.com/of-tools-icons/d2.png',
+        font: '12px arial white'
+      },
+      edges: {
+        arrows:'middle'
+      }
+    };
     this.network = new vis.Network(this.container, data, options);
 
     /*var nodes = new vis.DataSet([
@@ -62,28 +90,37 @@ export class VisCanvasComponent implements OnInit {
     };
     var options = {};
     var network = new vis.Network(container, data, options);*/
-    this.nodes.add({label:'HOLA',id:1});
+
     this.nodes.add({label:'CHAU',id:2});
+    this.nodes.add({label:'HOLA',id:1});
     this.edges.add({to:1,from:2});
 
     this.network.on('click', (obj:any) => this.clickEvent.emit(obj));
   }
 
-  public addWorkflowStep(tool: any) {
-    //TODO: antes de esto un modal? que presente opciones para los links entres steps
-    //TODO: acá va a ser más complejo, ir al webservice generar el step con los links, etc
-      var node = new Node();
-      node.tool = tool;
-      node.label = tool.name;
-      node.id = tool.id;
-      this.nodes.add(node);
+  /**
+   * Me pasan el WF que adentro tiene lo necesario
+   * para volver a generar nodos y edges.
+   * Esta funcion hace la magia.
+   * @param wf
+   */
+  public updateWorkflow(workflow: Workflow) {
+    console.info('UPDATE GRAPH');
+    this.nodes.clear();
+    workflow.steps.forEach(step => {
+      console.info('ADD NODE '+step.name);
+      this.nodes.add(new Node(step,step.name,step.name));
+    });
+    //TODO:faltan links
   }
 
 
 }
 export class Node {
-  tool:Tool;
-  id:string;
-  label:string;
+  constructor(public tool: WorkflowStep, public id: string, public label: string) {
+    this.tool = tool;
+    this.id = id;
+    this.label = label;
+  }
 }
 

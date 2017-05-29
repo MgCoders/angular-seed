@@ -11,6 +11,8 @@ import { AuthenticationService } from '../_services/index';
 import { Tool } from '../_models/index';
 import { Injectable } from '@angular/core';
 import { User } from '../_models/user';
+import { Workflow } from '../_models/workflow';
+import { WorkflowStep } from '../_models/workflowStep';
 
 @Injectable()
 export class WorkflowService {
@@ -18,7 +20,7 @@ export class WorkflowService {
               private authenticationService: AuthenticationService) {
   }
 
-  newWorkflow(user: User): Observable<any> {
+  newWorkflow(user: User): Observable<Workflow> {
     // add authorization header with jwt token
     let headers = new Headers({'Authorization': this.authenticationService.token});
     let options = new RequestOptions({headers: headers});
@@ -27,12 +29,21 @@ export class WorkflowService {
       .map((response: Response) => response.json());
   }
 
-  newStep(tool: Tool, list: any[]): Observable<any> {
-    console.info('SAVE' + tool);
+  newStep(tool: Tool, list: any[]): Observable<WorkflowStep> {
+    console.info('NEW STEP' + tool);
     // add authorization header with jwt token
     let headers = new Headers({'Authorization': this.authenticationService.token});
     let options = new RequestOptions({headers: headers});
     return this.http.post(Config.API + '/omicflows-backend/rest/workflows/step/' + tool.id, list, options)
+      .map((response: Response) => response.json());
+  }
+
+  addStepToWorkflow(workflow:Workflow,step:WorkflowStep):Observable<Workflow>{
+    console.info('ADD STEP' + step);
+    // add authorization header with jwt token
+    let headers = new Headers({'Authorization': this.authenticationService.token});
+    let options = new RequestOptions({headers: headers});
+    return this.http.post(Config.API + '/omicflows-backend/rest/workflows/' + workflow.id, step, options)
       .map((response: Response) => response.json());
   }
 

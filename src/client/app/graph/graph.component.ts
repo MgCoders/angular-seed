@@ -12,6 +12,9 @@ import { Tool } from '../_models/tool';
 import { WorkflowService } from '../_services/workflow.service';
 import { User } from '../_models/user';
 import { VisCanvasComponent } from '../shared/vis-canvas/vis-canvas.component';
+import { Workflow } from '../_models/workflow';
+import { WorkflowStep } from '../_models/workflowStep';
+import { StepDetailComponent } from './step-detail.component';
 
 /**
  * This class represents the lazy loaded AboutComponent.
@@ -25,13 +28,15 @@ import { VisCanvasComponent } from '../shared/vis-canvas/vis-canvas.component';
 export class GraphComponent implements OnInit {
 
 
-
   @ViewChild('graphDetail')
   detailSideNav: MdSidenav;
   @ViewChild('visCanvas')
   visCanvas: VisCanvasComponent;
-  activeWorkflow: any = null;
-  selectedObject: any = null;
+  @ViewChild('stepDetail')
+  stepDetail: StepDetailComponent;
+  activeWorkflow: Workflow = null;
+  selectedObject: WorkflowStep = null;
+  selectedIsNew: boolean = false;
   tools: Tool[] = [];
 
   constructor(public toolService: ToolService, public wfService: WorkflowService, private snackBar: MdSnackBar) {
@@ -43,9 +48,14 @@ export class GraphComponent implements OnInit {
   }
 
   canvasClicked(obj: any) {
-    console.info(obj);
-    this.detailSideNav.open();
-    this.selectedObject = obj;
+    var selectedNode = obj.edges[0];
+    console.info(selectedNode);
+    if (selectedNode) {
+      console.info(selectedNode);
+      var step = this.activeWorkflow.steps.find(step => step.name === selectedNode.id);
+      this.selectedIsNew = false;
+      this.selectedObject = step;
+    }
   }
 
   exitDetail() {
@@ -71,12 +81,22 @@ export class GraphComponent implements OnInit {
   }
 
   newStep(tool: Tool) {
-    //TODO: guardar en este componente un diccionario de los nodos, pq el canvas despues me da el id en click.
     var links: any[] = [];
     this.wfService.newStep(tool, links).subscribe(
-      step => this.visCanvas.addWorkflowStep(step),
+      step => this.newStepSucceded(step),
       error => this.handleError(error)
     );
+  }
+
+  newStepSucceded(step:WorkflowStep) {
+    console.info(step);
+    this.selectedIsNew = true;
+    this.selectedObject = step;
+  }
+
+  updateCanvas(workflow:Workflow) {
+    this.activeWorkflow = workflow;
+    this.visCanvas.updateWorkflow(this.activeWorkflow);
   }
 
   private handleError(error: any) {

@@ -12,11 +12,11 @@ import { NameListService } from './name-list/name-list.service';
 import { VisCanvasComponent } from './vis-canvas/vis-canvas.component';
 import {
   MdButtonModule,
-  MdCardModule,
+  MdCardModule, MdCheckboxModule,
   MdIconModule,
   MdInputModule,
   MdListModule,
-  MdMenuModule,
+  MdMenuModule, MdSelectModule,
   MdSidenavModule,
   MdSlideToggleModule,
   MdSnackBarModule, MdTabsModule,
@@ -31,13 +31,13 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 @NgModule({
   imports: [CommonModule, RouterModule,MdSidenavModule,
     MdToolbarModule, MdButtonModule, MdCardModule, MdListModule, MdIconModule,
-    MdMenuModule, MdSnackBarModule, MdSlideToggleModule, MdInputModule, FlexLayoutModule,MdTabsModule],
+    MdMenuModule, MdSnackBarModule, MdSlideToggleModule, MdInputModule, FlexLayoutModule,MdTabsModule,MdCheckboxModule,MdSelectModule],
   declarations: [ToolbarComponent, NavbarComponent, VisCanvasComponent],
   exports: [ToolbarComponent, NavbarComponent,
     CommonModule, FormsModule, RouterModule, VisCanvasComponent,
     MdSidenavModule,
     MdToolbarModule, MdButtonModule, MdCardModule, MdListModule, MdIconModule,
-    MdMenuModule, MdSnackBarModule, MdSlideToggleModule, MdInputModule, FlexLayoutModule,MdTabsModule]
+    MdMenuModule, MdSnackBarModule, MdSlideToggleModule, MdInputModule, FlexLayoutModule,MdTabsModule,MdCheckboxModule,MdSelectModule]
 })
 export class SharedModule {
   static forRoot(): ModuleWithProviders {
