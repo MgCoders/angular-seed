@@ -29,12 +29,12 @@ export class WorkflowService {
       .map((response: Response) => response.json());
   }
 
-  newStep(tool: Tool, list: any[]): Observable<WorkflowStep> {
+  newStep(tool: Tool): Observable<WorkflowStep> {
     console.info('NEW STEP' + tool);
     // add authorization header with jwt token
     let headers = new Headers({'Authorization': this.authenticationService.token});
     let options = new RequestOptions({headers: headers});
-    return this.http.post(Config.API + '/omicflows-backend/rest/workflows/step/' + tool.id, list, options)
+    return this.http.get(Config.API + '/omicflows-backend/rest/workflows/step/' + tool.id, options)
       .map((response: Response) => response.json());
   }
 

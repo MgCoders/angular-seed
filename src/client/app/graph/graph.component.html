@@ -1,24 +1,5 @@
 <md-sidenav-container fxFill>
   <md-sidenav #graphDetail mode="over" align="end" [opened]="selectedObject" onclose="exitDetail()">
-    <!-- <md-toolbar>
-       <button md-button type="button" (click)="exitDetail()">
-         <md-icon>close</md-icon>
-       </button>
-       <button md-button type="button">
-         <md-icon>delete</md-icon>
-       </button>
-       <a md-button type="button">
-         <md-icon>edit</md-icon>
-       </a>
-       <a md-button type="button" (click)="addStep(selectedObject)">
-         <md-icon>add</md-icon>
-       </a>
-
-     </md-toolbar>
-     <md-tab-group *ngIf="selectedObject">
-       <md-tab label="Node Detail">{{selectedObject.nodes}}</md-tab>
-       <md-tab label="Other stuff">Content 2</md-tab>
-     </md-tab-group>-->
     <div *ngIf="selectedObject">
       <step-detail #stepDetail [step]="selectedObject" [isNew]="selectedIsNew" [activeWorkflow]="activeWorkflow" (workflowChange)="updateCanvas($event)"></step-detail>
     </div>

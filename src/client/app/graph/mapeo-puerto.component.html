@@ -1,0 +1,10 @@
+<md-select  placeholder="Herramienta" *ngIf="model.mapped" name="tool" [(ngModel)]="model.sourceMappedPortName" (change)="getPortsFromActiveWorkflow(input.sourceMappedPortName)">
+  <md-option *ngFor="let step of activeWorkflow.steps" [value]="step.name">
+    <b>{{step.id}}</b> / {{step.name}}
+  </md-option>
+</md-select>
+<md-select placeholder="Salida" *ngIf="model.sourceMappedPortName" name="port" [(ngModel)]="model.sourceMappedToolName">
+  <md-option *ngFor="let port of portList" [value]="port.name">
+    {{port.schema}}: {{port.name}}
+  </md-option>
+</md-select>

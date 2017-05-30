@@ -16,7 +16,7 @@
   <div fxLayout="column" class="form-container" *ngIf="step">
 
 
-    <h5>{{step.name}}</h5>
+    <h5><b>{{step.id}}</b> / {{step.name}}</h5>
     <label>Entradas:</label>
     <div *ngFor="let input of step.neededInputs">
       <label>{{input.schema}}: {{input.name}}</label>
@@ -24,14 +24,14 @@
         <md-checkbox [(ngModel)]="input.mapped" name="mapped">Entrada intermedia</md-checkbox>
       </section>
       <section>
-        <md-select  placeholder="Herramienta" *ngIf="input.mapped" name="tool" [(ngModel)]="input.sourceMappedPortName">
-          <md-option >
-           gg
+        <md-select  placeholder="Herramienta" *ngIf="input.mapped" name="tool" [(ngModel)]="input.sourceMappedToolName" (change)="getPortsFromActiveWorkflow(input.sourceMappedToolName)">
+          <md-option *ngFor="let step of activeWorkflow.steps" [value]="step.name">
+            <b>{{step.id}}</b> / {{step.name}}
           </md-option>
         </md-select>
-        <md-select placeholder="Salida" *ngIf="input.sourceMappedPortName" name="port" [(ngModel)]="input.sourceMappedToolName">
-          <md-option>
-            lala
+        <md-select placeholder="Salida" *ngIf="input.sourceMappedToolName" name="port" [(ngModel)]="input.sourceMappedPortName">
+          <md-option *ngFor="let port of portList" [value]="port.name">
+            {{port.schema}}: {{port.name}}
           </md-option>
         </md-select>
       </section>

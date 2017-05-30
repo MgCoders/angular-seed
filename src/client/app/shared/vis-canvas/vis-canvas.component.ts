@@ -108,8 +108,8 @@ export class VisCanvasComponent implements OnInit {
     console.info('UPDATE GRAPH');
     this.nodes.clear();
     workflow.steps.forEach(step => {
-      console.info('ADD NODE '+step.name);
-      this.nodes.add(new Node(step,step.name,step.name));
+      console.info('ADD NODE '+step.id);
+      this.nodes.add(new Node(step,step.name,step.id));
     });
     //TODO:faltan links
   }

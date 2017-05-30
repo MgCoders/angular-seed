@@ -10,6 +10,7 @@ import { MdSnackBar } from '@angular/material';
 import { WorkflowStep } from '../_models/workflowStep';
 import { WorkflowService } from '../_services/workflow.service';
 import { Workflow } from '../_models/workflow';
+import { WorkflowOut } from '../_models/workflowOut';
 @Component({
   moduleId: module.id,
   selector: 'step-detail',
@@ -27,6 +28,7 @@ export class StepDetailComponent {
   public isNew: boolean = false;
   @Input()
   public activeWorkflow:Workflow;
+  portList:WorkflowOut[] = [];
 
 
   constructor(private wfService: WorkflowService, private snackBar: MdSnackBar) {
@@ -58,13 +60,24 @@ export class StepDetailComponent {
   }
 
   addStep() {
+    console.info(this.step);
     this.wfService.addStepToWorkflow(this.activeWorkflow, this.step).subscribe(
       workflow => {
         this.activeWorkflow = workflow;
         this.workflowChange.emit(this.activeWorkflow);
+        this.step = null;
       },
       error => this.handleError(error)
     );
+  }
+
+
+  getPortsFromActiveWorkflow(stepId:string) {
+    this.portList = [];
+    this.activeWorkflow.steps.find(step => {
+      return step.name === stepId;
+    }).neededOutputs.forEach(out => this.portList.push(out));
+    console.info(this.portList);
   }
 
 

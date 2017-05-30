@@ -49,13 +49,11 @@ export class GraphComponent implements OnInit {
 
   canvasClicked(obj: any) {
     var selectedNode = obj.nodes[0];
-    console.info(selectedNode);
     if (selectedNode) {
       var step = this.activeWorkflow.steps.find(step => step.name === selectedNode);
-      console.info(step);
       this.selectedIsNew = false;
       this.selectedObject = step;
-      this.detailSideNav.open();
+      //this.detailSideNav.open();
     }
   }
 
@@ -82,15 +80,15 @@ export class GraphComponent implements OnInit {
   }
 
   newStep(tool: Tool) {
-    var links: any[] = [];
-    this.wfService.newStep(tool, links).subscribe(
+    this.wfService.newStep(tool).subscribe(
       step => this.newStepSucceded(step),
       error => this.handleError(error)
     );
   }
 
+
+
   newStepSucceded(step:WorkflowStep) {
-    console.info(step);
     this.selectedIsNew = true;
     this.selectedObject = step;
   }
@@ -98,6 +96,9 @@ export class GraphComponent implements OnInit {
   updateCanvas(workflow:Workflow) {
     this.activeWorkflow = workflow;
     this.visCanvas.updateWorkflow(this.activeWorkflow);
+    this.selectedObject = null;
+    this.selectedIsNew = false;
+    console.info(workflow);
   }
 
   private handleError(error: any) {
