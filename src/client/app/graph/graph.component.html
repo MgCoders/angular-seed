@@ -10,8 +10,11 @@
       <md-card-header>
         <md-card-title><h4>Nuevo workflow</h4></md-card-title>
         <md-card-subtitle>{{activeWorkflow.name}}</md-card-subtitle>
+        <button md-mini-fab (click)="closeWf()" *ngIf="!activeWorkflow.complete">
+          <md-icon>save</md-icon>
+        </button>
       </md-card-header>
-      <md-card-content>
+      <md-card-content *ngIf="!activeWorkflow.complete">
         <h4>Herramientas</h4>
         <md-list>
 

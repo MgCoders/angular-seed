@@ -47,7 +47,7 @@ export class VisCanvasComponent implements OnInit {
         hierarchical:
           {
             enabled: true,
-            direction: 'DU'
+            direction: 'UD'
           }
       },
       physics: {
@@ -62,7 +62,13 @@ export class VisCanvasComponent implements OnInit {
         font: '12px arial white'
       },
       edges: {
-        arrows:'middle'
+        arrows:'middle',
+        font: {
+          size: 12,
+          face: 'arial',
+          strokeWidth: 0,
+          color: 'white'
+        }
       }
     };
     this.network = new vis.Network(this.container, data, options);
@@ -107,8 +113,12 @@ export class VisCanvasComponent implements OnInit {
   public updateWorkflow(workflow: Workflow) {
     console.info('UPDATE GRAPH');
     this.nodes.clear();
+    this.edges.clear();
     workflow.steps.forEach(step => {
       console.info('ADD NODE '+step.id);
+      step.neededInputs.filter(input => input.mapped).forEach(input => {
+        this.edges.add({from:input.sourceMappedToolName,to:step.name,label:input.schema+':'+input.sourceMappedPortName+'->'+input.name});
+      });
       this.nodes.add(new Node(step,step.name,step.id));
     });
     //TODO:faltan links

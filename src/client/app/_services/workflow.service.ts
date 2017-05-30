@@ -30,7 +30,7 @@ export class WorkflowService {
   }
 
   newStep(tool: Tool): Observable<WorkflowStep> {
-    console.info('NEW STEP' + tool);
+    console.info('NEW STEP' , tool);
     // add authorization header with jwt token
     let headers = new Headers({'Authorization': this.authenticationService.token});
     let options = new RequestOptions({headers: headers});
@@ -39,7 +39,7 @@ export class WorkflowService {
   }
 
   addStepToWorkflow(workflow:Workflow,step:WorkflowStep):Observable<Workflow>{
-    console.info('ADD STEP' + step);
+    console.info('ADD STEP' ,step);
     // add authorization header with jwt token
     let headers = new Headers({'Authorization': this.authenticationService.token});
     let options = new RequestOptions({headers: headers});
@@ -47,8 +47,17 @@ export class WorkflowService {
       .map((response: Response) => response.json());
   }
 
+  closeWorkflow(workflow:Workflow): Observable<Workflow> {
+    console.info('CLOSE WF' ,workflow);
+    // add authorization header with jwt token
+    let headers = new Headers({'Authorization': this.authenticationService.token});
+    let options = new RequestOptions({headers: headers});
+    return this.http.get(Config.API + '/omicflows-backend/rest/workflows/close/' + workflow.id, options)
+      .map((response: Response) => response.json());
+  }
+
   deleteTool(tool: Tool): Observable<Response> {
-    console.info('DELETE' + tool);
+    console.info('DELETE' ,tool);
     // add authorization header with jwt token
     let headers = new Headers({'Authorization': this.authenticationService.token});
     let options = new RequestOptions({headers: headers});

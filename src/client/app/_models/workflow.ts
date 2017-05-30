@@ -7,11 +7,11 @@ export class Workflow {
   public id:string;
   public userId:string;
   public name:string;
-  public cwl:string;
-  public json:string;
   public complete:boolean;
   public steps: WorkflowStep[];
   public neededInputs: WorkflowIn[];
   public neededOutput: WorkflowOut[];
+
+
 
 }

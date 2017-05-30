@@ -98,7 +98,17 @@ export class GraphComponent implements OnInit {
     this.visCanvas.updateWorkflow(this.activeWorkflow);
     this.selectedObject = null;
     this.selectedIsNew = false;
-    console.info(workflow);
+  }
+
+  closeWf() {
+    this.wfService.closeWorkflow(this.activeWorkflow).subscribe(
+      wf => {
+        this.notify('Correcto!','OK');
+        this.activeWorkflow = wf;
+        console.info('WF TERMINADO: ',this.activeWorkflow);
+      },
+      error => this.handleError(error)
+    );
   }
 
   private handleError(error: any) {

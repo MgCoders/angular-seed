@@ -4,7 +4,6 @@ export class WorkflowStep {
 
   public id:string;
   public name:string;
-  public cwl:string;
   public json:string;
   public neededInputs: WorkflowIn[];
   public neededOutputs: WorkflowOut[];
