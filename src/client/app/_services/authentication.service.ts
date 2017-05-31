@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
 export class AuthenticationService {
 
   jwtHelper: JwtHelper = new JwtHelper();
+  public lastUrl = '/';
 
   constructor(private http: Http, private router: Router) {
   }
