@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { LoginRoutingModule } from './login-routing.module';
 import { SharedModule } from '../shared/shared.module';
+import { AuthAdminRoleGuard } from '../_guards/authAdminRole.guard';
 
 @NgModule({
   imports: [
@@ -21,6 +22,7 @@ import { SharedModule } from '../shared/shared.module';
   exports: [LoginComponent],
   providers: [
     AuthGuard,
+    AuthAdminRoleGuard,
     AuthenticationService,
     UserService
   ]

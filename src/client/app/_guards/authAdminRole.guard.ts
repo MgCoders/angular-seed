@@ -12,21 +12,21 @@ import {
 import { AuthenticationService } from '../_services/authentication.service';
 
 @Injectable()
-export class AuthGuard implements CanActivate {
+export class AuthAdminRoleGuard implements CanActivate {
 
-  constructor(private router: Router,private authService:AuthenticationService) {
+  constructor(private router: Router, private authService: AuthenticationService) {
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    console.info('pregunto si logged')
     if (this.authService.loggedIn()) {
-      // logged in so return true
-      console.info('si si');
-      return true;
+      if (this.authService.loggedAsAdminRole()) {
+        return true;
+      }
     }
-
+    console.info('cant activate', route);
     // not logged in so redirect to login page
     this.router.navigate(['login'], {queryParams: {returnUrl: state.url}})
     return false;
   }
+
 }

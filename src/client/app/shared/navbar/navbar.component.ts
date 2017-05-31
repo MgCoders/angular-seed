@@ -3,6 +3,7 @@ import {
   EventEmitter,
   Output
 } from '@angular/core';
+import { AuthenticationService } from '../../_services/authentication.service';
 
 /**
  * This class represents the navigation bar component.
@@ -17,6 +18,10 @@ export class NavbarComponent {
 
   @Output()
   toogleSideNavEvent: EventEmitter<boolean> = new EventEmitter();
+
+
+  constructor(private auth: AuthenticationService) {
+  }
 
   public close(): void {
     this.toogleSideNavEvent.emit(true);

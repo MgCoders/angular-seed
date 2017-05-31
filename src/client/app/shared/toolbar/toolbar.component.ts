@@ -5,7 +5,7 @@ import {
   Output
 } from '@angular/core';
 import { AuthenticationService } from '../../_services/authentication.service';
-import { AuthHttp } from 'angular2-jwt';
+import { Router } from '@angular/router';
 
 /**
  * This class represents the toolbar component.
@@ -19,13 +19,15 @@ import { AuthHttp } from 'angular2-jwt';
 export class ToolbarComponent {
 
 
-  constructor(public auth:AuthenticationService) {
-  }
+
 
   @Input()
   sidenavOpened: boolean;
   @Output()
   toogleSideNavEvent: EventEmitter<boolean> = new EventEmitter();
+
+  constructor(public auth: AuthenticationService, private router: Router) {
+  }
 
   public toogle(): void {
     this.sidenavOpened = !this.sidenavOpened;

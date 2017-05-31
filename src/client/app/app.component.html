@@ -1,5 +1,5 @@
 <div fxLayout="column" fxFlex>
-  <sd-toolbar [sidenavOpened]="sidenav_opened" (toogleSideNavEvent)="sidenav.open()"></sd-toolbar>
+  <sd-toolbar [sidenavOpened]="sidenav_opened" (toogleSideNavEvent)="toogleSideNav()"></sd-toolbar>
   <md-sidenav-container fxFlex>
     <md-sidenav #sidenav mode="push" (opened)="sidenav_opened" align="start">
       <sd-navbar (toogleSideNavEvent)="sidenav.close()"></sd-navbar>

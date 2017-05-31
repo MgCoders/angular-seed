@@ -7,18 +7,18 @@ import {
 } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
-import { AuthConfigConsts, AuthHttp, JwtHelper, tokenNotExpired } from 'angular2-jwt';
+import { JwtHelper } from 'angular2-jwt';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthenticationService {
 
   jwtHelper: JwtHelper = new JwtHelper();
 
-  constructor(private http: Http) {
+  constructor(private http: Http, private router: Router) {
   }
 
   public loggedIn():boolean {
-    console.info('check if logged');
     var token = sessionStorage.getItem('token');
     return token && this.jwtHelper.decodeToken(token) && !this.jwtHelper.isTokenExpired(token);
   }
@@ -35,13 +35,10 @@ export class AuthenticationService {
         let token = response.json() && response.json().token;
         if (token) {
           // set token property
-
           var role = this.jwtHelper.decodeToken(token).role;
-          console.info(role);
           // store username and jwt token in local storage to keep user logged in between page refreshes
-          sessionStorage.setItem('token',token);
+          sessionStorage.setItem('token', token.split(' ')[1]);
           sessionStorage.setItem('currentUser',JSON.stringify({email: email, role:role}))
-          console.info(token);
           // return true to indicate successful login
           return true;
         } else {
@@ -51,21 +48,17 @@ export class AuthenticationService {
       });
   }
 
-  logout(): void {
+  public logout() {
     // clear token remove user from local storage to log user out
-    localStorage.removeItem('currentUser');
-    console.info('logout');
+    sessionStorage.removeItem('currentUser');
+    sessionStorage.removeItem('token');
   }
 
-  handleServiceError(error: Response) {
-    console.info(error);
-    if (error.status === 401) {
-      console.info('401');
-      this.logout();
-
-      return null;
-    } else {
-      return Observable.throw(error);
+  public loggedAsAdminRole() {
+    if (JSON.parse(sessionStorage.getItem('currentUser'))) {
+      return JSON.parse(sessionStorage.getItem('currentUser')).role === 'ADMIN';
     }
+    return false;
   }
+
 }

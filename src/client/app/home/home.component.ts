@@ -1,9 +1,4 @@
-import {
-  Component,
-  OnInit
-} from '@angular/core';
-import { NameListService } from '../shared/name-list/name-list.service';
-import { ToolService } from '../_services/tool.service';
+import { Component } from '@angular/core';
 
 /**
  * This class represents the lazy loaded HomeComponent.
@@ -14,66 +9,11 @@ import { ToolService } from '../_services/tool.service';
   templateUrl: 'home.component.html',
   styleUrls: ['home.component.css'],
 })
-export class HomeComponent implements OnInit {
-
-  newName: string = '';
-  errorMessage: string;
-  names: any[] = [];
-  tools: any[] = [];
-  public _opened: boolean = false;
+export class HomeComponent {
 
 
 
-  /**
-   * Creates an instance of the HomeComponent with the injected
-   * NameListService.
-   *
-   * @param {NameListService} nameListService - The injected NameListService.
-   */
-  constructor(public nameListService: NameListService, public toolService: ToolService) {
-  }
-
-  public _toggleSidebar() {
-    this._opened = !this._opened;
-  }
-  /**
-   * Get the names OnInit
-   */
-  ngOnInit() {
-    this.getNames();
-    this.getTools();
 
 
-  }
-
-  /**
-   * Handle the nameListService observable
-   */
-  getNames() {
-    this.nameListService.get()
-      .subscribe(
-        names => this.names = names,
-        error => this.errorMessage = <any>error
-      );
-  }
-
-  getTools() {
-    this.toolService.getTools()
-      .subscribe(
-        tools => this.tools = tools,
-        error => this.errorMessage = <any>error
-      );
-  }
-
-  /**
-   * Pushes a new name onto the names array
-   * @return {boolean} false to prevent default form submit behavior to refresh the page.
-   */
-  addName(): boolean {
-    // TODO: implement nameListService.post
-    this.names.push(this.newName);
-    this.newName = '';
-    return false;
-  }
 
 }
