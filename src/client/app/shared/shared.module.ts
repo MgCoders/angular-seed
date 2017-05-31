@@ -23,6 +23,7 @@ import {
   MdToolbarModule
 } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { AuthenticationService } from '../_services/authentication.service';
 
 /**
  * Do not specify providers for modules that might be imported by a lazy loaded module.
@@ -37,13 +38,14 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     CommonModule, FormsModule, RouterModule, VisCanvasComponent,
     MdSidenavModule,
     MdToolbarModule, MdButtonModule, MdCardModule, MdListModule, MdIconModule,
-    MdMenuModule, MdSnackBarModule, MdSlideToggleModule, MdInputModule, FlexLayoutModule,MdTabsModule,MdCheckboxModule,MdSelectModule]
+    MdMenuModule, MdSnackBarModule, MdSlideToggleModule, MdInputModule, FlexLayoutModule,MdTabsModule,MdCheckboxModule,MdSelectModule],
+  providers: [AuthenticationService]
 })
 export class SharedModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: SharedModule,
-      providers: [NameListService]
+      providers: [NameListService,AuthenticationService]
     };
   }
 }

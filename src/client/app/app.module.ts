@@ -20,9 +20,10 @@ import {
 } from '@angular/material';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { AuthModule } from './auth.module';
 
 @NgModule({
-  imports: [BrowserModule, NoopAnimationsModule, MdSidenavModule, MdIconModule,
+  imports: [BrowserModule, AuthModule, NoopAnimationsModule, MdSidenavModule, MdIconModule,
     MdButtonModule, SharedModule.forRoot(), FlexLayoutModule,
     HttpModule, AppRoutingModule, AboutModule, HomeModule,
     LoginModule, ToolsModule,GraphModule],

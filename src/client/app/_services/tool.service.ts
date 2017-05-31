@@ -1,47 +1,31 @@
-import {
-  Headers,
-  Http,
-  RequestOptions,
-  Response
-} from '@angular/http';
+import { Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { Config } from '../shared/config/env.config';
-import { AuthenticationService } from '../_services/index';
 import { Tool } from '../_models/index';
 import { Injectable } from '@angular/core';
+import { AuthHttp } from 'angular2-jwt';
 
 @Injectable()
 export class ToolService {
-  constructor(private http: Http,
-              private authenticationService: AuthenticationService) {
+  constructor(public authHttp: AuthHttp) {
   }
 
-  getTools(): Observable<Tool[]> {
-    // add authorization header with jwt token
-    let headers = new Headers({'Authorization': this.authenticationService.token});
-    let options = new RequestOptions({headers: headers});
 
-    // get users from api
-    return this.http.get(Config.API+'/omicflows-backend/rest/tools', options)
+  getTools(): Observable<Tool[]> {
+    return this.authHttp.get(Config.API+'/omicflows-backend/rest/tools')
       .map((response: Response) => response.json());
   }
 
   saveTool(tool: Tool):Observable<Response> {
     console.info('SAVE' + tool);
-    // add authorization header with jwt token
-    let headers = new Headers({'Authorization': this.authenticationService.token});
-    let options = new RequestOptions({headers: headers});
-    return this.http.post(Config.API + '/omicflows-backend/rest/tools/save', tool, options)
+    return this.authHttp.post(Config.API + '/omicflows-backend/rest/tools/save', tool)
       .map((response: Response) => response);
   }
 
   deleteTool(tool: Tool):Observable<Response> {
     console.info('DELETE' + tool);
-    // add authorization header with jwt token
-    let headers = new Headers({'Authorization': this.authenticationService.token});
-    let options = new RequestOptions({headers: headers});
-    return this.http.delete(Config.API + '/omicflows-backend/rest/tools/delete/' + tool.id, options)
+    return this.authHttp.delete(Config.API + '/omicflows-backend/rest/tools/delete/' + tool.id)
       .map((response: Response) => response);
   }
 

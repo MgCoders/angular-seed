@@ -5,17 +5,22 @@ import {
   RequestOptions,
   Response
 } from '@angular/http';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import { AuthConfigConsts, AuthHttp, JwtHelper, tokenNotExpired } from 'angular2-jwt';
 
 @Injectable()
 export class AuthenticationService {
-  public token: string;
+
+  jwtHelper: JwtHelper = new JwtHelper();
 
   constructor(private http: Http) {
-    // set token if saved in local storage
-    var currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    this.token = currentUser && currentUser.token;
+  }
+
+  public loggedIn():boolean {
+    console.info('check if logged');
+    var token = sessionStorage.getItem('token');
+    return token && this.jwtHelper.decodeToken(token) && !this.jwtHelper.isTokenExpired(token);
   }
 
   login(email: string, password: string): Observable<boolean> {
@@ -30,12 +35,13 @@ export class AuthenticationService {
         let token = response.json() && response.json().token;
         if (token) {
           // set token property
-          this.token = token;
-          console.info(token);
 
+          var role = this.jwtHelper.decodeToken(token).role;
+          console.info(role);
           // store username and jwt token in local storage to keep user logged in between page refreshes
-          localStorage.setItem('currentUser', JSON.stringify({email: email, token: token}));
-
+          sessionStorage.setItem('token',token);
+          sessionStorage.setItem('currentUser',JSON.stringify({email: email, role:role}))
+          console.info(token);
           // return true to indicate successful login
           return true;
         } else {
@@ -47,7 +53,19 @@ export class AuthenticationService {
 
   logout(): void {
     // clear token remove user from local storage to log user out
-    this.token = null;
     localStorage.removeItem('currentUser');
+    console.info('logout');
+  }
+
+  handleServiceError(error: Response) {
+    console.info(error);
+    if (error.status === 401) {
+      console.info('401');
+      this.logout();
+
+      return null;
+    } else {
+      return Observable.throw(error);
+    }
   }
 }

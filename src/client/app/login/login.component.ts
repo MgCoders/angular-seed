@@ -30,8 +30,10 @@ export class LoginComponent implements OnInit {
     this.loading = true;
     this.authenticationService.login(this.model.username, this.model.password)
       .subscribe(result => {
+        console.info(result);
         if (result === true) {
           // login successful
+          //this.loading = false;
           this.router.navigate(['/']);
         } else {
           // login failed

@@ -121,7 +121,7 @@ export class VisCanvasComponent implements OnInit {
       });
       this.nodes.add(new Node(step,step.name,step.id));
     });
-    //TODO:faltan links
+    //TODO:se pueden dibujar las entradas y salidas como nodos tmb, y en el slider dar la posibilidad de subir los archivos???
   }
 
 

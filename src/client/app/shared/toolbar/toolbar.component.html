@@ -8,11 +8,11 @@
     <md-icon>account_circle</md-icon>
   </button>
   <md-menu #menu="mdMenu">
-    <button md-menu-item [routerLink]="['/login']" [routerLinkActive]="['router-link-active']"
+    <button *ngIf="true" md-menu-item [routerLink]="['/login']" [routerLinkActive]="['router-link-active']"
             [routerLinkActiveOptions]="{exact:true}">
       <span>Login</span>
     </button>
-    <button md-menu-item disabled>
+    <button *ngIf="true" md-menu-item (click)="auth.logout()">
       <span>Logout</span>
     </button>
     <span md-menu-item><md-slide-toggle>Admin mode</md-slide-toggle></span>
