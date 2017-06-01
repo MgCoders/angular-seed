@@ -9,6 +9,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { JwtHelper } from 'angular2-jwt';
 import { Router } from '@angular/router';
+import { Config } from '../shared/config/env.config';
 
 @Injectable()
 export class AuthenticationService {
@@ -30,7 +31,7 @@ export class AuthenticationService {
     let body = new URLSearchParams();
     body.set('email', email);
     body.set('password', password);
-    return this.http.post('http://localhost:8080/omicflows-backend/rest/users/login', body.toString(), options)
+    return this.http.post(Config.API + '/omicflows-backend/rest/users/login', body.toString(), options)
       .map((response: Response) => {
         // login successful if there's a jwt token in the response
         let token = response.json() && response.json().token;
