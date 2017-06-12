@@ -51,3 +51,8 @@ sd-app {
 .panel-card {
   margin: 15px;
 }
+
+md-select[placeholder]{
+  margin-top: 20px;
+}
+
