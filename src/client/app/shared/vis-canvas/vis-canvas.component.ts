@@ -127,10 +127,17 @@ export class VisCanvasComponent implements OnInit {
 
 }
 export class Node {
+  public image: string = '';
   constructor(public tool: WorkflowStep, public id: string, public label: string) {
     this.tool = tool;
     this.id = id;
     this.label = label;
+    if (this.tool.neededInputs.find(input => {
+        return !input.mapped;
+      }))
+      this.image = 'https://s3.amazonaws.com/of-tools-icons/s3-logo.png';
+    else
+      this.image = 'https://s3.amazonaws.com/of-tools-icons/d2.png';
   }
 }
 

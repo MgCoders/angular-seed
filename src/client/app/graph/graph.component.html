@@ -5,7 +5,9 @@
     </div>
   </md-sidenav>
 
-  <div fxLayout="row" fxLayoutAlign="start stretch" *ngIf="activeWorkflow">
+  <div  [fxLayout]="row" [fxLayout.md]="column" fxLayoutAlign="start stretch" *ngIf="activeWorkflow">
+
+
     <md-card fxFlex="20" class="panel-card">
       <md-card-header>
         <md-card-title><h4>Nuevo workflow</h4></md-card-title>
@@ -31,6 +33,8 @@
         </md-list>
       </md-card-content>
     </md-card>
+
+
     <md-card fxFlex class="panel-card">
       <vis-canvas #visCanvas (clickEvent)="canvasClicked($event)"></vis-canvas>
     </md-card>

@@ -61,12 +61,19 @@ export class StepDetailComponent {
 
   addStep() {
     console.info(this.step);
+    if (this.step.neededInputs.find(input => {
+        return !input.mapped;
+      }))
+      console.log('FALTA ENTRADA');
+    else
+      console.log('OK');
+
     this.wfService.addStepToWorkflow(this.activeWorkflow, this.step).subscribe(
       workflow => {
         this.activeWorkflow = workflow;
         this.workflowChange.emit(this.activeWorkflow);
         this.step = null;
-      },
+},
       error => this.handleError(error)
     );
   }
