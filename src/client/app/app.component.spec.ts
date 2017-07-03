@@ -8,7 +8,7 @@ import { APP_BASE_HREF } from '@angular/common';
 import { Route } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
+//import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 //import { DndComponent } from './dnd/dnd.component';
 import { ToolbarComponent } from './shared/toolbar/toolbar.component';
@@ -19,7 +19,7 @@ export function main() {
   describe('App component', () => {
 
     let config: Route[] = [
-      {path: '', component: HomeComponent},
+     // {path: '', component: HomeComponent},
       {path: 'about', component: AboutComponent}//,
       //{path: 'dnd', component: DndComponent}
     ];
@@ -28,7 +28,7 @@ export function main() {
         imports: [FormsModule, RouterTestingModule.withRoutes(config)],
         declarations: [TestComponent, ToolbarComponent,
           NavbarComponent, AppComponent,
-          HomeComponent, AboutComponent/*, DndComponent*/],
+         /* HomeComponent,*/ AboutComponent/*, DndComponent*/],
         providers: [
           {provide: APP_BASE_HREF, useValue: '/'}
         ]
