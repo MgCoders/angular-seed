@@ -1,0 +1,42 @@
+<form #stepDetail="ngForm" (ngSubmit)="onSubmit()">
+  <md-toolbar>
+    <button md-button type="button" (click)="stepDetail.form.reset(); deleteSucceded()">
+      <md-icon>close</md-icon>
+    </button>
+    <button md-button type="button" (click)="deleteTool()">
+      <md-icon>delete</md-icon>
+    </button>
+    <button md-button *ngIf="isNew" type="submit" [disabled]="!stepDetail.form.valid">
+      <md-icon>add</md-icon>
+    </button>
+
+
+  </md-toolbar>
+
+  <div fxLayout="column" class="form-container" *ngIf="step">
+
+
+    <h5>{{step.name}}</h5>
+    <label>Entradas:</label>
+    <div *ngFor="let input of step.neededInputs">
+      <label>{{input.schema}}: {{input.name}}</label>
+      <section>
+        <md-checkbox [(ngModel)]="input.mapped" name="mapped">Entrada intermedia</md-checkbox>
+      </section>
+      <section>
+        <md-select *ngFor="let tool of tools" placeholder="Herramienta" *ngIf="input.mapped" name="tool" [(ngModel)]="input.sourceMappedPortName">
+          <md-option [value]="tool">
+            {{tool.name}}
+          </md-option>
+        </md-select>
+        <md-select placeholder="Salida" *ngIf="input.sourceMappedPortName" name="port" [(ngModel)]="input.sourceMappedToolName">
+          <md-option>
+            lala
+          </md-option>
+        </md-select>
+      </section>
+    </div>
+
+  </div>
+
+</form>

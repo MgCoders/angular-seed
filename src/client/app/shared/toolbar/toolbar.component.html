@@ -1,2 +1,20 @@
-<h1>Angular Seed</h1>
-<div class="more"></div>
+<md-toolbar color="primary">
+  <button md-button (click)="toogle()" *ngIf="auth.loggedIn()">
+    <md-icon>menu</md-icon>
+  </button>
+  <img class="logo" src="../../../assets/of-blanco.png"/>
+  <span fxFlex></span>
+  <button md-icon-button [mdMenuTriggerFor]="menu">
+    <md-icon>account_circle</md-icon>
+  </button>
+  <md-menu #menu="mdMenu">
+    <button *ngIf="!auth.loggedIn()" md-menu-item [routerLink]="['/login']" [routerLinkActive]="['router-link-active']"
+            [routerLinkActiveOptions]="{exact:true}">
+      <span>Login</span>
+    </button>
+    <button *ngIf="auth.loggedIn()" md-menu-item (click)="auth.logout() && router.navigate(['login'])">
+      <span>Logout</span>
+    </button>
+
+  </md-menu>
+</md-toolbar>

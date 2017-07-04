@@ -1,4 +1,40 @@
-<nav>
-  <a [routerLink]="['/']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">HOME</a>
-  <a [routerLink]="['/about']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">ABOUT</a>
-</nav>
+<!--<md-toolbar>
+
+</md-toolbar>-->
+
+<md-nav-list *ngIf="auth.loggedIn()">
+  <md-list-item [routerLink]="['/']" [routerLinkActive]="['router-link-active']"
+                [routerLinkActiveOptions]="{exact:true}" (click)="close()">
+    <md-icon md-list-icon>home</md-icon>
+    <h4 md-line> Home</h4>
+  </md-list-item>
+  <md-divider></md-divider>
+  <md-list-item *ngIf="auth.loggedAsAdminRole()" [routerLink]="['/tools']" [routerLinkActive]="['router-link-active']"
+                [routerLinkActiveOptions]="{exact:true}" (click)="close()">
+    <md-icon md-list-icon>build</md-icon>
+    <h4 md-line>Tools</h4>
+  </md-list-item>
+  <md-divider></md-divider>
+  <md-list-item [routerLink]="['/graph']" [routerLinkActive]="['router-link-active']"
+                [routerLinkActiveOptions]="{exact:true}" (click)="close()">
+    <md-icon md-list-icon>group_work</md-icon>
+    <h4 md-line>Nuevo workflow</h4>
+  </md-list-item>
+<!--
+
+  <md-divider></md-divider>
+  <a md-list-item [routerLink]="['/about']" [routerLinkActive]="['router-link-active']"
+     [routerLinkActiveOptions]="{exact:true}">ABOUT</a>
+  <md-divider></md-divider>
+
+  <a md-list-item [routerLink]="['/dnd']" [routerLinkActive]="['router-link-active']"
+     [routerLinkActiveOptions]="{exact:true}">DND</a>
+  <md-divider></md-divider>
+
+  <a md-list-item [routerLink]="['/tools']" [routerLinkActive]="['router-link-active']"
+     [routerLinkActiveOptions]="{exact:true}">Tools</a>
+  <md-divider></md-divider>
+
+  <a md-list-item [routerLink]="['/graph']" [routerLinkActive]="['router-link-active']"
+     [routerLinkActiveOptions]="{exact:true}">Graph</a>-->
+</md-nav-list>

@@ -5,9 +5,10 @@ import { HomeComponent } from './home.component';
 @NgModule({
   imports: [
     RouterModule.forChild([
-      { path: '', component: HomeComponent }
+      {path: '', component: HomeComponent}
     ])
   ],
   exports: [RouterModule]
 })
-export class HomeRoutingModule { }
+export class HomeRoutingModule {
+}

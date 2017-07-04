@@ -1,0 +1,54 @@
+<md-sidenav-container fxFill>
+
+
+  <div fxLayout="row" fxLayoutAlign="start start">
+
+    <md-card class="panel-card">
+      <md-card-header>
+        <md-card-title><h4>Herramientas disponibles</h4></md-card-title>
+      </md-card-header>
+      <md-card-content>
+        <md-input-container>
+          <input mdInput placeholder="Búsqueda..." value="">
+        </md-input-container>
+
+
+      </md-card-content>
+      <md-card-actions>
+        <span fxFlex></span>
+        <button md-button (click)="newTool()">
+          <md-icon>add</md-icon>
+
+          <span>New</span>
+        </button>
+
+      </md-card-actions>
+    </md-card>
+    <md-card *ngFor="let tool of tools" class="panel-card">
+      <md-card-header>
+        <md-card-title><h4>{{tool.name}}</h4></md-card-title>
+        <md-card-subtitle>{{tool.descripcion}}</md-card-subtitle>
+      </md-card-header>
+      <md-card-content>
+        <div fxLayout="column" fxLayoutAlign="center center" >
+          <!--TODO: debería ser un enlace guardado en el objeto que viene de bd y ser distinto para cada uno -->
+          <img src="https://s3.amazonaws.com/of-tools-icons/d2.png">
+        </div>
+      </md-card-content>
+      <md-card-actions>
+        <span fxFlex></span>
+        <button md-button (click)="selectTool(tool)">
+          <md-icon>info</md-icon>
+        </button>
+
+      </md-card-actions>
+    </md-card>
+  </div>
+
+  <md-sidenav #detailSideNav mode="over" align="end" (close)="detailSideNavClosed()">
+
+    <tool-detail #detailForm (toolsChange)="toolsChanged()"></tool-detail>
+
+  </md-sidenav>
+
+</md-sidenav-container>

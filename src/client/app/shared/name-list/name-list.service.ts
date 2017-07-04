@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import {
+  Http,
+  Response
+} from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 // import 'rxjs/add/operator/do';  // for debugging
 
@@ -14,7 +17,8 @@ export class NameListService {
    * @param {Http} http - The injected Http.
    * @constructor
    */
-  constructor(private http: Http) {}
+  constructor(private http: Http) {
+  }
 
   /**
    * Returns an Observable for the HTTP GET request for the JSON resource.
@@ -22,15 +26,15 @@ export class NameListService {
    */
   get(): Observable<string[]> {
     return this.http.get('assets/data.json')
-                    .map((res: Response) => res.json())
-    //              .do(data => console.log('server data:', data))  // debug
-                    .catch(this.handleError);
+      .map((res: Response) => res.json())
+      //              .do(data => console.log('server data:', data))  // debug
+      .catch(this.handleError);
   }
 
   /**
-    * Handle HTTP error
-    */
-  private handleError (error: any) {
+   * Handle HTTP error
+   */
+  private handleError(error: any) {
     // In a real world app, we might use a remote logging infrastructure
     // We'd also dig deeper into the error to get a better message
     let errMsg = (error.message) ? error.message :

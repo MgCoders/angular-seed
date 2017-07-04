@@ -2,7 +2,7 @@ import { FormsModule } from '@angular/forms';
 import {
   async,
   TestBed
- } from '@angular/core/testing';
+} from '@angular/core/testing';
 
 import { Observable } from 'rxjs/Observable';
 
@@ -18,7 +18,7 @@ export function main() {
         imports: [FormsModule],
         declarations: [HomeComponent],
         providers: [
-          { provide: NameListService, useValue: new MockNameListService() }
+          {provide: NameListService, useValue: new MockNameListService()}
         ]
       });
 
