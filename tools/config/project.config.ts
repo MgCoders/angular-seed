@@ -29,10 +29,8 @@ export class ProjectConfig extends SeedConfig {
       {src: 'vis/dist/vis.min.js', inject: 'libs'},
       {src: 'vis/dist/vis.min.css', inject: true},
       {src:'ng2-dnd/bundles/style.css', inject: true},
-      {src: '@angular/material/prebuilt-themes/deeppurple-amber.css', inject: true, vendor: false},
-      //{src: '@angular/material/prebuilt-themes/indigo-pink.css', inject: true, vendor: false},
-      //{src: '@angular/material/prebuilt-themes/pink-bluegrey.css', inject: true, vendor: false},
-      //{src: '@angular/material/prebuilt-themes/purple-green.css', inject: true, vendor: false},
+      {src: '@angular/material/prebuilt-themes/purple-green.css', inject: true, vendor: false},
+      // {src: '@angular/material/prebuilt-themes/indigo-pink.css', inject: true, vendor: false},
       {src: 'hammerjs/hammer.min.js', inject: 'libs'},
     ];
 
