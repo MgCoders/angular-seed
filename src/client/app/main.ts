@@ -10,9 +10,9 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 // The app module
 import { AppModule } from './app.module';
 
-if (String('<%= BUILD_TYPE %>') === 'prod') {
+//if (String('<%= BUILD_TYPE %>') === 'prod') {
   enableProdMode();
-}
+//}
 
 // Compile and launch the module with i18n providers
 // let TP = new TranslationProviders();
