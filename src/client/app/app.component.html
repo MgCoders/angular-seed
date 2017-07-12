@@ -1,11 +1,1 @@
-<div fxLayout="column" fxFlex>
-  <sd-toolbar [sidenavOpened]="sidenav_opened" (toogleSideNavEvent)="toogleSideNav()"></sd-toolbar>
-  <md-sidenav-container fxFlex>
-    <md-sidenav #sidenav mode="push" (opened)="sidenav_opened" align="start">
-      <sd-navbar (toogleSideNavEvent)="sidenav.close()"></sd-navbar>
-    </md-sidenav>
-    >>>> 1 >>>>
-    <router-outlet></router-outlet>
-    <<<< 2 <<<<
-  </md-sidenav-container>
-</div>
+<router-outlet></router-outlet>

@@ -5,10 +5,9 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
-import { AboutModule } from './about/about.module';
+import { MainModule } from './main/main.module';
 import { HomeModule } from './home/home.module';
-
-
+import { AboutModule } from './about/about.module';
 import { SharedModule } from './shared/shared.module';
 import { LoginModule } from './login/login.module';
 import { ToolsModule } from './tools/tools.module';
@@ -25,8 +24,8 @@ import { AuthModule } from './auth.module';
 @NgModule({
   imports: [BrowserModule, AuthModule, NoopAnimationsModule, MdSidenavModule, MdIconModule,
     MdButtonModule, SharedModule.forRoot(), FlexLayoutModule,
-    HttpModule, AppRoutingModule, AboutModule, HomeModule,
-    LoginModule, ToolsModule,GraphModule],
+    HttpModule, AppRoutingModule, HomeModule,
+    LoginModule, ToolsModule,GraphModule, AboutModule, MainModule],
   declarations: [AppComponent],
   providers: [{
     provide: APP_BASE_HREF,

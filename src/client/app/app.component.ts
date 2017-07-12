@@ -17,21 +17,9 @@ import { MdSidenav } from '@angular/material';
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.css'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
 
-  @ViewChild('sidenav')
-  sidenav: MdSidenav;
-  sidenav_opened: boolean = false;
-
-  constructor(private authHelper: AuthenticationService) {
+  constructor() {
     console.log('Environment config', Config);
-  }
-
-  ngOnInit(): void {
-    this.authHelper.logout();
-  }
-
-  toogleSideNav() {
-    this.sidenav.toggle();
   }
 }

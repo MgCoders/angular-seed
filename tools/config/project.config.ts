@@ -28,7 +28,7 @@ export class ProjectConfig extends SeedConfig {
       {src: 'bootstrap/dist/css/bootstrap.min.css', inject: true},
       {src: 'vis/dist/vis.min.js', inject: 'libs'},
       {src: 'vis/dist/vis.min.css', inject: true},
-      {src:'ng2-dnd/bundles/style.css', inject: true},
+      //{src:'ng2-dnd/bundles/style.css', inject: true},
       //{src: '@angular/material/prebuilt-themes/purple-green.css', inject: true, vendor: false},
       {src: '@angular/material/prebuilt-themes/indigo-pink.css', inject: true, vendor: false},
       {src: 'hammerjs/hammer.min.js', inject: 'libs'},
@@ -51,11 +51,7 @@ export class ProjectConfig extends SeedConfig {
     ];
 
     // Add packages (e.g. ng2-translate)
-    let additionalPackages: ExtendPackages[] = [{
-       name: 'ng2-dnd',
-    //   // Path to the package's bundle
-       path: 'node_modules/ng2-dnd/bundles/index.umd.js'
-    },
+    let additionalPackages: ExtendPackages[] = [
       {
         name: 'ng-sidebar',
         path: 'node_modules/ng-sidebar/lib/index.js'
