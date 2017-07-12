@@ -4,8 +4,10 @@
     <md-sidenav #sidenav mode="push" (opened)="sidenav_opened" align="start">
       <sd-navbar (toogleSideNavEvent)="sidenav.close()"></sd-navbar>
     </md-sidenav>
-    >>>> Main >>>>
-    <router-outlet></router-outlet>
-    <<<< Main <<<<
   </md-sidenav-container>
+
+  <h1>Main Component start</h1>
+  <router-outlet></router-outlet>
+  <h1>Main Component start</h1>
 </div>
+

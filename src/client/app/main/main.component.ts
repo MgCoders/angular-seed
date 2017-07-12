@@ -4,7 +4,7 @@ import {
   ViewChild
 } from '@angular/core';
 import { Config } from '../shared/config/env.config';
-import './operators';
+import '../operators';
 import { AuthenticationService } from '../_services/authentication.service';
 import { MdSidenav } from '@angular/material';
 

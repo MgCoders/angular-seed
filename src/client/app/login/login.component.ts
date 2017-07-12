@@ -3,7 +3,7 @@ import {
   OnInit
 } from '@angular/core';
 import { Router } from '@angular/router';
-
+import { MdProgressBarModule } from '@angular/material';
 import { AuthenticationService } from '../_services/index';
 
 @Component({

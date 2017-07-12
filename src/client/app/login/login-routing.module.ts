@@ -7,7 +7,7 @@ import { MainComponent } from '../main/main.component';
   imports: [
     RouterModule.forChild([
       {path: '' , component: MainComponent,
-       children: [{ path: 'login', component: LoginComponent }]
+        children: [{ path: 'login', component: LoginComponent }]
       }
     ])
   ],
