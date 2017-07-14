@@ -52,6 +52,7 @@ export class AuthenticationService {
 
   public logout() {
     // clear token remove user from local storage to log user out
+    console.log('Logout......');
     sessionStorage.removeItem('currentUser');
     sessionStorage.removeItem('token');
   }

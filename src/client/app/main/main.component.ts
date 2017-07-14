@@ -28,7 +28,6 @@ export class MainComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.authHelper.logout();
   }
 
   toogleSideNav() {
