@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DatePipe } from '@angular/common';
 
 @Component({
   moduleId: module.id,
@@ -9,6 +10,9 @@ import { Component } from '@angular/core';
 
 
 export class AboutComponent {
+
+  year: number = new Date().getFullYear();
+
 
 }
 

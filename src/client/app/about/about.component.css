@@ -1,0 +1,546 @@
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+body {
+  margin: 0;
+}
+
+/* Disable ugly boxes around images in IE10 */
+a img{
+  border: 0px;
+}
+
+.mdl-color--accent {
+  background-color: rgb(0,188,210) !important;
+}
+
+::-moz-selection {
+  background-color: rgb(80,206,192);
+  color: #fff;
+}
+
+::selection {
+  background-color: rgb(80,206,192);
+  color: #fff;
+}
+
+.omicflows-search-box .mdl-textfield__input {
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.omicflows-header .mdl-menu__container {
+  z-index: 50;
+  margin: 0 !important;
+}
+
+
+.mdl-textfield--expandable {
+  width: auto;
+}
+
+.omicflows-fab {
+  position: absolute;
+  right: 20%;
+  bottom: -26px;
+  z-index: 3;
+  background: #64ffda !important;
+  color: black !important;
+}
+
+.omicflows-mobile-title {
+  display: none !important;
+}
+
+
+.omicflows-logo-image {
+  /*height: 28px;*/
+  width: 180px;
+}
+
+
+.omicflows-header {
+  overflow: visible;
+  background-color: white;
+}
+
+.omicflows-header .material-icons {
+  color: #767777 !important;
+}
+
+.omicflows-header .mdl-layout__drawer-button {
+  background: transparent;
+  color: #767777;
+}
+
+.omicflows-header .mdl-navigation__link {
+  color: #757575;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.omicflows-navigation-container {
+  /* Simple hack to make the overflow happen to the left instead... */
+  direction: rtl;
+  order: 1;
+  width: 500px;
+  transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+  width 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.omicflows-navigation {
+  /* ... and now make sure the content is actually LTR */
+  direction: ltr;
+  justify-content: flex-end;
+  width: 800px;
+}
+
+.omicflows-search-box.is-focused + .omicflows-navigation-container {
+  opacity: 0;
+  width: 100px;
+}
+
+
+.omicflows-navigation .mdl-navigation__link {
+  display: inline-block;
+  height: 60px;
+  line-height: 68px;
+  background-color: transparent !important;
+  border-bottom: 4px solid transparent;
+}
+
+.omicflows-navigation .mdl-navigation__link:hover {
+  /*border-bottom: 4px solid #8bc34a;*/
+  border-bottom: 4px solid rgb(0,188,210);
+
+}
+
+.omicflows-search-box {
+  order: 2;
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+.omicflows-more-button {
+  order: 3;
+}
+
+
+.omicflows-drawer {
+  border-right: none;
+}
+
+.omicflows-drawer-separator {
+  height: 1px;
+  background-color: #dcdcdc;
+  margin: 8px 0;
+}
+
+.omicflows-drawer .mdl-navigation__link.mdl-navigation__link {
+  font-size: 14px;
+  color: #757575;
+}
+
+.omicflows-drawer span.mdl-navigation__link.mdl-navigation__link {
+  color: rgb(80,206,192);
+}
+
+.omicflows-drawer .mdl-layout-title {
+  position: relative;
+  background: rgb(0,188,210);
+  height: 160px;
+}
+
+.omicflows-drawer .omicflows-logo-image {
+  position: absolute;
+  bottom: 16px;
+}
+
+.omicflows-be-together-section {
+  position: relative;
+  height: 800px;
+  width: auto;
+  background-color: #f3f3f3;
+  background: url('../../assets/images/Science-lab/mix ideas 8.png') center 30% no-repeat;
+  background-size: cover;
+}
+
+.logo-font {
+  /*font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;*/
+  font-family: 'Helvetica', 'Helvetica Neue', 'Arial', sans-serif;
+
+  line-height: 1;
+  color: #767777;
+  font-weight: 500;
+}
+
+.omicflows-slogan {
+  font-size: 60px;
+  padding-top: 160px;
+}
+
+.omicflows-sub-slogan {
+  font-size: 21px;
+  padding-top: 24px;
+}
+
+.omicflows-create-character {
+  font-size: 21px;
+  padding-top: 400px;
+}
+
+.omicflows-create-character a {
+  text-decoration: none;
+  color: #767777;
+  font-weight: 300;
+}
+
+.omicflows-screen-section {
+  position: relative;
+  padding-top: 60px;
+  padding-bottom: 80px;
+}
+
+.omicflows-screens {
+  text-align: right;
+  width: 100%;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
+.omicflows-screen {
+  text-align: center;
+}
+
+.omicflows-screen .omicflows-link {
+  margin-top: 16px;
+  display: block;
+  z-index: 2;
+}
+
+.omicflows-image-link {
+  text-decoration: none;
+}
+
+.omicflows-wear {
+  display: inline-block;
+  width: 160px;
+  margin-right: 32px;
+}
+
+.omicflows-wear .omicflows-screen-image {
+  width: 40%;
+  z-index: 1;
+}
+
+
+.omicflows-phone {
+  display: inline-block;
+  width: 64px;
+  margin-right: 48px;
+}
+
+.omicflows-phone .omicflows-screen-image {
+  width: 100%;
+  z-index: 1;
+}
+
+
+.omicflows-tablet {
+  display: inline-block;
+  width: 110px;
+  margin-right: 64px;
+}
+
+.omicflows-tablet .omicflows-screen-image {
+  width: 100%;
+  z-index: 1;
+}
+
+.omicflows-tablet .omicflows-link {
+  display: block;
+  z-index: 2;
+}
+
+
+.omicflows-tv {
+  display: inline-block;
+  width: 300px;
+  margin-right: 80px;
+}
+
+.omicflows-tv .omicflows-screen-image {
+  width: 100%;
+  z-index: 1;
+}
+
+
+.omicflows-auto {
+  display: inline-block;
+  width: 300px;
+  overflow: hidden;
+}
+
+.omicflows-auto .omicflows-screen-image {
+  display: block;
+  height: 300px;
+  z-index: 1;
+}
+
+
+.omicflows-wear-section {
+  position: relative;
+  background: url('../../assets/images/lab1.png') center bottom no-repeat;
+  background-size: cover;
+  height: 800px;
+}
+
+.omicflows-wear-band {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  background-color: #37474f;
+}
+
+.omicflows-wear-band-text {
+  max-width: 800px;
+  margin-left: 25%;
+  padding: 24px;
+  text-align: left;
+  color: white;
+}
+
+.omicflows-wear-band-text p {
+  padding-top: 8px;
+}
+
+.omicflows-link {
+  text-decoration: none;
+  /*color: #8bc34a !important;*/
+  color: rgb(80,206,192) !important;
+}
+
+.omicflows-link:hover {
+  /*color: #7cb342 !important;*/
+  color: rgb(0,188,210) !important;
+
+
+}
+
+.omicflows-link .material-icons {
+  position: relative;
+  top: -1px;
+  vertical-align: middle;
+}
+
+.omicflows-alt-link {
+  text-decoration: none;
+  color: #64ffda !important;
+  font-size: 16px;
+}
+
+.omicflows-alt-link:hover {
+  color: #00bfa5 !important;
+}
+
+.omicflows-alt-link .material-icons {
+  position: relative;
+  top: 6px;
+}
+
+.omicflows-customized-section {
+  text-align: center;
+}
+
+.omicflows-customized-section-text {
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 80px 16px 0 16px;
+}
+
+.omicflows-customized-section-text p {
+  padding-top: 16px;
+}
+
+.omicflows-customized-section-image {
+  background: url('../../assets/images/devices.jpg') center top no-repeat;
+  background-size: cover;
+  height: 400px;
+}
+
+.omicflows-more-section {
+  padding: 80px 0;
+  max-width: 1044px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.omicflows-more-section .omicflows-section-title {
+  margin-left: 12px;
+  padding-bottom: 24px;
+}
+
+.omicflows-card-container {
+}
+
+.omicflows-card-container .mdl-card__media {
+  overflow: hidden;
+  background: transparent;
+}
+
+.omicflows-card-container .mdl-card__media img {
+  width: 100%;
+}
+
+.omicflows-card-container .mdl-card__title {
+  background: transparent;
+  height: auto;
+}
+
+.omicflows-card-container .mdl-card__title-text {
+  color: black;
+  height: auto;
+}
+
+.omicflows-card-container .mdl-card__supporting-text {
+  height: auto;
+  color: black;
+  padding-bottom: 56px;
+}
+
+.omicflows-card-container .mdl-card__actions {
+  position: absolute;
+  bottom: 0;
+}
+
+.omicflows-card-container .mdl-card__actions a {
+  border-top: none;
+  font-size: 16px;
+}
+
+.omicflows-footer {
+  background-color: #fafafa;
+  position: relative;
+}
+
+.omicflows-footer a:hover {
+  color: rgb(0,188,210);
+}
+
+.omicflows-footer .mdl-mega-footer--top-section::after {
+  border-bottom: none;
+}
+
+.omicflows-footer .mdl-mega-footer--middle-section::after {
+  border-bottom: none;
+}
+
+.omicflows-footer .mdl-mega-footer--bottom-section {
+  position: relative;
+}
+
+.omicflows-footer .mdl-mega-footer--bottom-section a {
+  margin-right: 2em;
+}
+
+.omicflows-footer .mdl-mega-footer--right-section a .material-icons {
+  position: relative;
+  top: 6px;
+}
+
+
+.omicflows-link-menu:hover {
+  cursor: pointer;
+}
+
+
+/**** Mobile layout ****/
+@media (max-width: 900px) {
+  .omicflows-navigation-container {
+    display: none;
+  }
+
+  .omicflows-title {
+    display: none !important;
+  }
+
+  .omicflows-mobile-title {
+    display: block !important;
+    position: absolute;
+    left: calc(50% - 70px);
+    top: 12px;
+    transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* WebViews in iOS 9 break the "~" operator, and WebViews in OS X 10.10 break
+     consecutive "+" operators in some cases. Therefore, we need to use both
+     here to cover all the bases. */
+  .omicflows.omicflows-search-box.is-focused ~ .omicflows-mobile-title,
+  .omicflows-search-box.is-focused + .omicflows-navigation-container + .omicflows-mobile-title {
+    opacity: 0;
+  }
+
+  .omicflows-more-button {
+    display: none;
+  }
+
+  .omicflows-search-box.is-focused {
+    width: calc(100% - 48px);
+  }
+
+  .omicflows-search-box .mdl-textfield__expandable-holder {
+    width: 100%;
+  }
+
+  .omicflows-be-together-section {
+    height: 350px;
+  }
+
+  .omicflows-slogan {
+    font-size: 26px;
+    margin: 0 16px;
+    padding-top: 24px;
+  }
+
+  .omicflows-sub-slogan {
+    font-size: 16px;
+    margin: 0 16px;
+    padding-top: 8px;
+  }
+
+  .omicflows-create-character {
+    padding-top: 200px;
+    font-size: 16px;
+  }
+
+  .omicflows-create-character img {
+    height: 12px;
+  }
+
+  .omicflows-fab {
+    display: none;
+  }
+
+  .omicflows-wear-band-text {
+    margin-left: 0;
+    padding: 16px;
+  }
+
+  .omicflows-footer .mdl-mega-footer--bottom-section {
+    display: none;
+  }
+}
