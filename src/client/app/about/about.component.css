@@ -377,9 +377,9 @@ a img{
 }
 
 .omicflows-customized-section-image {
-  background: url('../../assets/images/devices.jpg') center top no-repeat;
-  background-size: cover;
-  height: 400px;
+  background: url('../../assets/images/about/dna_min2.svg') center;
+  background-size: 400px;
+  height: 200px;
 }
 
 .omicflows-more-section {
