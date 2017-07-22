@@ -6,8 +6,8 @@ import { MainComponent } from '../main/main.component';
 @NgModule({
   imports: [
     RouterModule.forChild([
-      {path: '' , component: MainComponent,
-        children: [{ path: 'login', component: LoginComponent }]
+      {path: 'login' , component: MainComponent,
+        children: [{ path: '', component: LoginComponent }]
       }
     ])
   ],
