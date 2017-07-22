@@ -12,6 +12,9 @@ import { SharedModule } from './shared/shared.module';
 import { LoginModule } from './login/login.module';
 import { ToolsModule } from './tools/tools.module';
 import { GraphModule } from './graph/graph.module';
+import { RegisterModule } from './register/register.module';
+
+
 import {
   MdButtonModule,
   MdIconModule,
@@ -25,7 +28,7 @@ import { AuthModule } from './auth.module';
   imports: [BrowserModule, AuthModule, NoopAnimationsModule, MdSidenavModule, MdIconModule,
     MdButtonModule, SharedModule.forRoot(), FlexLayoutModule,
     HttpModule, AppRoutingModule, HomeModule,
-    LoginModule, ToolsModule,GraphModule, AboutModule, MainModule],
+    LoginModule, ToolsModule,GraphModule, AboutModule, MainModule, RegisterModule],
   declarations: [AppComponent],
   providers: [{
     provide: APP_BASE_HREF,

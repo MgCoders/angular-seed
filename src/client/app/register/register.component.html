@@ -1,0 +1,20 @@
+<div class="form">
+  <h1>Register Form</h1>
+  <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm.value)">
+    <div class='section'>
+      <label for="name" class="label">Name</label>
+      <input type="text" id="name" placeholder="Johnny Bravo" class="form-control" name="name"  ngControl="name" #name="ngModel" ngModel required>
+    </div>
+    <div class="section">
+      <label for="age" class="label">Age</label>
+      <input type="number" id="age" placeholder="23" name="age" ngModel>
+    </div>
+    <div class="section">
+      <label for="email" class='label'>Email</label>
+      <input type="email" id="email" placeholder="johnny@gmail.com" name="email" ngModel>
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+  <div class="result">We have  users.</div>
+  <ul><li *ngFor="let person of persons">Name: {{ person.name }} , Age: {{ person.age }}, Email: {{ person.email }}</li></ul>
+</div>

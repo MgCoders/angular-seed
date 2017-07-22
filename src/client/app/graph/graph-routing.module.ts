@@ -6,9 +6,9 @@ import { MainComponent } from '../main/main.component';
 @NgModule({
   imports: [
     RouterModule.forChild([
-      {path: 'graph' , component: GraphComponent,
-        children: [{ path: 'graph', component: GraphComponent }]
-      }
+      {path: 'graph' , component: MainComponent,
+        children: [{ path: '', component: GraphComponent }]
+      } 
     ])
   ],
   exports: [RouterModule]
