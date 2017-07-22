@@ -14,7 +14,7 @@ export class RegisterComponent  {
   counter = 0;
   person: Person;
 
-  onSubmit(value) {
+  onSubmit(value: Person) {
     this.person = new Person(value.name, value.email, value.age);
     if(value) {
       this.persons.push(this.person);
