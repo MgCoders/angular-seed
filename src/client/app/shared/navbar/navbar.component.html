@@ -14,6 +14,16 @@
     <md-icon md-list-icon>build</md-icon>
     <h4 md-line>Tools</h4>
   </md-list-item>
+
+  <md-divider></md-divider>
+
+  <md-list-item [routerLink]="['/register']" [routerLinkActive]="['router-link-active']"
+                [routerLinkActiveOptions]="{exact:true}" (click)="close()">
+    <md-icon md-list-icon>home</md-icon>
+    <h4 md-line>Register</h4>
+  </md-list-item>
+
+
   <md-divider></md-divider>
   <md-list-item [routerLink]="['/graph']" [routerLinkActive]="['router-link-active']"
                 [routerLinkActiveOptions]="{exact:true}" (click)="close()">
